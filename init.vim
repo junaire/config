@@ -367,7 +367,7 @@ nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gr <Plug>(coc-references)
 
 " vim-rooter
-let g:rooter_patterns = ['.git', 'Makefile', 'go.mod']
+let g:rooter_patterns = ['.git', 'Makefile', 'go.mod', "requirements.txt", "LISENCE"]
 
 ""----------------------------------------------------------------------
 " 更改样式
