@@ -168,7 +168,6 @@ Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
 Plug 'rhysd/vim-clang-format'
 Plug 'plasticboy/vim-markdown'
-Plug 'easymotion/vim-easymotion'
 " Diff 增强，支持 histogram / patience 等更科学的 diff 算法
 Plug 'chrisbra/vim-diff-enhanced'
 " coc.nvim
@@ -184,9 +183,6 @@ Plug 'flazz/vim-colorschemes'
 
 " 支持库，给其他插件用的函数库
 Plug 'xolox/vim-misc'
-
-" 用于在侧边符号栏显示 marks （ma-mz 记录的位置）
-Plug 'kshenoy/vim-signature'
 
 " 用于在侧边符号栏显示 git/svn 的 diff
 Plug 'mhinz/vim-signify'
@@ -272,7 +268,17 @@ nnoremap <leader>h <c-w>h
 nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
 nnoremap <leader>l <c-w>l
+nnoremap <leader><leader> <c-^>
+" Center the cursor vertically when moving to the next word during a search.
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
 
+nnoremap ? ?\v
+nnoremap / /\v
+cnoremap %s/ %sm/
 " Rg search
 if executable('rg')
 	set grepprg=rg\ --no-heading\ --vimgrep
@@ -287,6 +293,14 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
+function! s:list_cmd()
+  let base = fnamemodify(expand('%'), ':h:.:S')
+  return base == '.' ? 'fd --type file --follow' : printf('fd --type file --follow | proximity-sort %s', shellescape(expand('%')))
+endfunction
+
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, {'source': s:list_cmd(),
+  \                               'options': '--tiebreak=index'}, <bang>0)
 
 "================================================
 " coc.nvim tab completion
@@ -354,9 +368,12 @@ nmap <silent> <leader>gr <Plug>(coc-references)
 
 " vim-rooter
 let g:rooter_patterns = ['.git', 'Makefile', 'go.mod']
+
 ""----------------------------------------------------------------------
 " 更改样式
 "----------------------------------------------------------------------
+
+colorscheme gruvbox
 
 " 更清晰的错误标注：默认一片红色背景，语法高亮都被搞没了
 " 只显示红色或者蓝色下划线或者波浪线
@@ -383,9 +400,3 @@ hi! SignColumn guibg=NONE ctermbg=NONE
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE 
 	\ gui=NONE guifg=DarkGrey guibg=NONE
 
-" 修正补全目录的色彩：默认太难看
-hi! Pmenu guibg=gray guifg=black ctermbg=gray ctermfg=black
-hi! PmenuSel guibg=gray guifg=brown ctermbg=brown ctermfg=gray
-
-
-colorscheme gruvbox
