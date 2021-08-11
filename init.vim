@@ -275,7 +275,7 @@ nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
-nnoremap <silent> <leader>h :call CocActionAsync("doHover") <cr>
+nnoremap <silent> <leader>d :call CocActionAsync("doHover") <cr>
 
 nnoremap ? ?\v
 nnoremap / /\v
