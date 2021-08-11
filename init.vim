@@ -224,7 +224,7 @@ Plug 'jceb/vim-textobj-uri'
 "----------------------------------------------------------------------
 
 " C++ 语法高亮增强，支持 11/14/17 标准
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
+Plug 'bfrg/vim-cpp-modern'
 
 " 额外语法文件
 Plug 'justinmk/vim-syntax-extra', { 'for': ['c', 'bison', 'flex', 'cpp'] }
@@ -247,7 +247,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree', {'on': ['NERDTree', 'NERDTreeFocus', 'NERDTreeToggle', 'NERDTreeCWD', 'NERDTreeFind'] }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 " Key mapping
@@ -275,6 +275,7 @@ nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
+nnoremap <silent> <leader>h :call CocActionAsync("doHover") <cr>
 
 nnoremap ? ?\v
 nnoremap / /\v
