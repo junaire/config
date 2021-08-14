@@ -369,6 +369,12 @@ nmap <silent> <leader>gr <Plug>(coc-references)
 " vim-rooter
 let g:rooter_patterns = ['.git', 'Makefile', 'go.mod', "requirements.txt", "LISENCE"]
 
+" fugitive
+nnoremap <silent> <leader>ga :Git add % <cr>
+nnoremap <silent> <leader>gs :Git status <cr>
+nnoremap <silent> <leader>gc :Git commit -a <cr>
+nnoremap <silent> <leader>gl :Git log <cr>
+nnoremap <silent> <leader>gh :Git show HEAD <cr>
 ""----------------------------------------------------------------------
 " 更改样式
 "----------------------------------------------------------------------
