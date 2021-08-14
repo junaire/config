@@ -172,8 +172,6 @@ Plug 'chrisbra/vim-diff-enhanced'
 " coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'jiangmiao/auto-pairs'
-
 " 展示开始画面，显示最近编辑过的文件
 Plug 'mhinz/vim-startify'
 
