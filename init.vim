@@ -374,6 +374,7 @@ nnoremap <silent> <leader>gs :Git status <cr>
 nnoremap <silent> <leader>gc :Git commit -a <cr>
 nnoremap <silent> <leader>gl :Git log <cr>
 nnoremap <silent> <leader>gh :Git show HEAD <cr>
+nnoremap <silent> <leader>gb :Git blame <cr>
 ""----------------------------------------------------------------------
 " 更改样式
 "----------------------------------------------------------------------
