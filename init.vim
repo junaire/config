@@ -245,6 +245,7 @@ Plug 'scrooloose/nerdtree', {'on': ['NERDTree', 'NERDTreeFocus', 'NERDTreeToggle
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " Key mapping
