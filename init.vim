@@ -249,6 +249,8 @@ Plug 'tpope/vim-surround'
 call plug#end()
 
 " Key mapping
+au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 " Just in case hit F1 by mistake
 nnoremap <F1> <ESC>
 " Jump to start and end of line using the home row keys
