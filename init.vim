@@ -278,6 +278,8 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 nnoremap <silent> <leader>d :call CocActionAsync("doHover") <cr>
+nnoremap <leader>w :wqa! <cr>
+nnoremap <leader>q :qa! <cr>
 
 nnoremap ? ?\v
 nnoremap / /\v
