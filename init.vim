@@ -246,6 +246,8 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-surround'
+Plug 'pboettch/vim-cmake-syntax'
+Plug 'APZelos/blamer.nvim'
 call plug#end()
 
 " Key mapping
@@ -377,6 +379,12 @@ nnoremap <silent> <leader>gc :Git commit -a <cr>
 nnoremap <silent> <leader>gl :Git log <cr>
 nnoremap <silent> <leader>gh :Git show HEAD <cr>
 nnoremap <silent> <leader>gb :Git blame <cr>
+
+" blamer.nvim
+let g:blamer_enabled = 0
+let g:blamer_delay = 500
+let g:blamer_template = '<commit-short> <committer> <author-time> <summary>'
+nnoremap <leader>b :BlamerToggle <cr>
 ""----------------------------------------------------------------------
 " 更改样式
 "----------------------------------------------------------------------
