@@ -366,8 +366,7 @@ let g:signify_vcs_cmds = {
 			\}
 
 "clang-format
-nnoremap <leader>f :ClangFormat<enter>
-
+let g:clang_format#auto_format=1
 "coc.nvim for c++
 nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gr <Plug>(coc-references)
