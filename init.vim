@@ -248,6 +248,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tpope/vim-surround'
 Plug 'pboettch/vim-cmake-syntax'
 Plug 'APZelos/blamer.nvim'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 " Key mapping
