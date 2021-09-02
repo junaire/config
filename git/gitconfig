@@ -1,8 +1,9 @@
 [user]
 	email = jun@junz.org
 	name = Jun
+	signingkey = 36C76C0C
 [core]
-	excludesfile = ./gitignore_global
+	excludesfile = ~/config/git/gitignore_global
 	editor = nvim
 [color]
 	ui = auto
@@ -25,4 +26,9 @@
 [difftool]
 	prompt = false
 [commit]
-	template = ./gitmessage
+	template = ~/config/git/gitmessage
+	gpgsign = true
+[format]
+	signoff = true
+[gpg]
+	program = gpg2
