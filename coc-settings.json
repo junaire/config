@@ -6,12 +6,12 @@
       "filetypes": ["go"]
     },
 	"ccls": {
-      "command": "ccls",
+      "command": "clangd",
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "rootPatterns": [".ccls", "compile_commands.json"],
+      "rootPatterns": [".git","compile_commands.json"],
       "initializationOptions": {
         "cache": {
-          "directory": "/tmp/ccls"
+          "directory": "/tmp/clangd-cache"
         },
         "client": {
           "snippetSupport": true
