@@ -1,4 +1,4 @@
-#! /bin/bzsh
+#! /bin/bash
 
 mkdir -p ~/.config/nvim
 ln -s ~/config/nvim/init.vim ~/.config/nvim/init.vim
