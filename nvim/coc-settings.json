@@ -2,11 +2,12 @@
   "languageserver": {
     "golang": {
       "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "rootPatterns": ["go.mod", ".git/", ".hg/"],
       "filetypes": ["go"]
     },
-	"ccls": {
+	"cpp": {
       "command": "clangd",
+	  "args" : ["--clang-tidy", "--clang-tidy-checks=-*, clang-analyzer-*, cppcoreguidelines-*, concurrency-*, google-*, modernize-*, performance-*, readability-*, -modernize-use-trailing-return-type"],
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
       "rootPatterns": [".git","compile_commands.json"],
       "initializationOptions": {
@@ -16,6 +17,16 @@
         "client": {
           "snippetSupport": true
         }
+      }
+    },
+	"cmake": {
+      "command": "cmake-language-server",
+      "filetypes": ["cmake"],
+      "rootPatterns": [
+        "build/"
+      ],
+      "initializationOptions": {
+        "buildDirectory": "build"
       }
     }
   }
