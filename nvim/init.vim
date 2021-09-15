@@ -9,7 +9,7 @@ set nowrap
 set ttimeout
 set ttimeoutlen=50
 set ruler
-set relativenumber
+set number
 set clipboard+=unnamedplus
 set cursorline
 set ignorecase
