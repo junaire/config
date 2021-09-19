@@ -52,6 +52,7 @@ set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m
 " 设置分隔符可视
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
 
+set matchpairs+=<:>
 " 如遇Unicode值大于255的文本，不必等到空格再折行
 set formatoptions+=m
 
@@ -72,7 +73,6 @@ set noet
 
 " 如果后面设置了 expandtab 那么展开 tab 为多少字符
 set softtabstop=4
-
 let mapleader = "\<Space>"
 "----------------------------------------------------------------------
 " 编码设置
@@ -184,15 +184,8 @@ Plug 'xolox/vim-misc'
 " 用于在侧边符号栏显示 git/svn 的 diff
 Plug 'mhinz/vim-signify'
 
-" Git 支持
-Plug 'tpope/vim-fugitive'
-
 " 配对括号和引号自动补全
 Plug 'Raimondi/delimitMate'
-
-"----------------------------------------------------------------------
-" 文件类型扩展
-"----------------------------------------------------------------------
 
 " C++ 语法高亮增强，支持 11/14/17 标准
 Plug 'bfrg/vim-cpp-modern'
@@ -246,7 +239,6 @@ nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
-nnoremap <silent> <leader>d :call CocActionAsync("doHover") <cr>
 nnoremap <leader>w :wqa! <cr>
 nnoremap <leader>q :qa! <cr>
 
@@ -292,6 +284,8 @@ function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+nnoremap <silent> <leader>d :call CocActionAsync("doHover") <cr>
 
 " Lightline
 let g:lightline = {
@@ -341,14 +335,6 @@ nmap <silent> <leader>gr <Plug>(coc-references)
 
 " vim-rooter
 let g:rooter_patterns = ['.git', 'Makefile', 'go.mod', "requirements.txt", "LISENCE"]
-
-" fugitive
-nnoremap <silent> <leader>ga :Git add % <cr>
-nnoremap <silent> <leader>gs :Git status <cr>
-nnoremap <silent> <leader>gc :Git commit -a <cr>
-nnoremap <silent> <leader>gl :Git log <cr>
-nnoremap <silent> <leader>gh :Git show HEAD <cr>
-nnoremap <silent> <leader>gb :Git blame <cr>
 
 " blamer.nvim
 let g:blamer_enabled = 0
