@@ -52,7 +52,6 @@ set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m
 " 设置分隔符可视
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
 
-set matchpairs+=<:>
 " 如遇Unicode值大于255的文本，不必等到空格再折行
 set formatoptions+=m
 
