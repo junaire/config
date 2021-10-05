@@ -70,6 +70,7 @@ set ts=4
 " 禁止展开 tab (noexpandtab)
 set noet
 
+set nospell
 " 如果后面设置了 expandtab 那么展开 tab 为多少字符
 set softtabstop=4
 let mapleader = "\<Space>"
@@ -212,6 +213,11 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-surround'
 Plug 'pboettch/vim-cmake-syntax'
 Plug 'APZelos/blamer.nvim'
+
+Plug 'lambdalisue/suda.vim'
+
+Plug 'kamykn/spelunker.vim'
+Plug 'kamykn/popup-menu.nvim'
 call plug#end()
 
 " Just in case hit F1 by mistake
@@ -231,19 +237,26 @@ nnoremap <leader>h <c-w>h
 nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
 nnoremap <leader>l <c-w>l
-nnoremap <leader><leader> :w <cr><c-^>
+
 " Center the cursor vertically when moving to the next word during a search.
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
-nnoremap <leader>w :wqa! <cr>
-nnoremap <leader>q :qa! <cr>
 
 nnoremap ? ?\v
 nnoremap / /\v
 cnoremap %s/ %sm/
+
+" remove extra spaces
+nnoremap <leader>c :%s/\s\+$//<cr>
+
+" quick save
+nnoremap :W :wqa!<cr>
+nnoremap <leader>q :qa! <cr>
+
+
 " Rg search
 if executable('rg')
 	set grepprg=rg\ --no-heading\ --vimgrep
@@ -340,6 +353,80 @@ let g:blamer_enabled = 0
 let g:blamer_delay = 500
 let g:blamer_template = '<commit-short> <committer> <author-time> <summary>'
 nnoremap <leader>b :BlamerToggle <cr>
+
+" Suda.nvim
+nnoremap <leader>w :SudaWrite<cr>
+
+" spelunker.vim.
+let g:enable_spelunker_vim = 1
+
+" Disable spelunker.vim on readonly files or buffer. (default: 0)
+let g:enable_spelunker_vim_on_readonly = 0
+
+" Check spelling for words longer than set characters. (default: 4)
+let g:spelunker_target_min_char_len = 4
+
+" Max amount of word suggestions. (default: 15)
+let g:spelunker_max_suggest_words = 15
+
+" Max amount of highlighted words in buffer. (default: 100)
+let g:spelunker_max_hi_words_each_buf = 100
+
+" Spellcheck type: (default: 1)
+" 1: File is checked for spelling mistakes when opening and saving. This
+" may take a bit of time on large files.
+" 2: Spellcheck displayed words in buffer. Fast and dynamic. The waiting time
+" depends on the setting of CursorHold `set updatetime=1000`.
+let g:spelunker_check_type = 1
+
+" Highlight type: (default: 1)
+" 1: Highlight all types (SpellBad, SpellCap, SpellRare, SpellLocal).
+" 2: Highlight only SpellBad.
+" FYI: https://vim-jp.org/vimdoc-en/spell.html#spell-quickstart
+let g:spelunker_highlight_type = 1
+
+" Option to disable word checking.
+" Disable URI checking. (default: 0)
+let g:spelunker_disable_uri_checking = 1
+
+" Disable email-like words checking. (default: 0)
+let g:spelunker_disable_email_checking = 1
+
+" Disable account name checking, e.g. @foobar, foobar@. (default: 0)
+" NOTE: Spell checking is also disabled for JAVA annotations.
+let g:spelunker_disable_account_name_checking = 1
+
+" Disable acronym checking. (default: 0)
+let g:spelunker_disable_acronym_checking = 1
+
+" Disable checking words in backtick/backquote. (default: 0)
+let g:spelunker_disable_backquoted_checking = 1
+
+" Disable default autogroup. (default: 0)
+let g:spelunker_disable_auto_group = 1
+
+" Create own custom autogroup to enable spelunker.vim for specific filetypes.
+augroup spelunker
+  autocmd!
+  " Setting for g:spelunker_check_type = 1:
+  autocmd BufWinEnter,BufWritePost *.vim,*.js,*.jsx,*.json,*.md call spelunker#check()
+
+  " Setting for g:spelunker_check_type = 2:
+  autocmd CursorHold *.vim,*.js,*.jsx,*.json,*.md call spelunker#check_displayed_words()
+augroup END
+
+" Override highlight group name of incorrectly spelled words. (default:
+" 'SpelunkerSpellBad')
+let g:spelunker_spell_bad_group = 'SpelunkerSpellBad'
+
+" Override highlight group name of complex or compound words. (default:
+" 'SpelunkerComplexOrCompoundWord')
+let g:spelunker_complex_or_compound_word_group = 'SpelunkerComplexOrCompoundWord'
+
+" Override highlight setting.
+highlight SpelunkerSpellBad cterm=underline ctermfg=247 gui=underline guifg=#9e9e9e
+highlight SpelunkerComplexOrCompoundWord cterm=underline ctermfg=NONE gui=underline guifg=NONE
+
 ""----------------------------------------------------------------------
 " 更改样式
 "----------------------------------------------------------------------
