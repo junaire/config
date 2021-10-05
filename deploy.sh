@@ -8,3 +8,4 @@ ln -s ~/config/git/gitconfig ~/.gitconfig
 
 ln -s ~/config/tmux/tmux.conf ~/.tmux.conf
 
+ln -s ~/config/gdb/gdbinit ~/.gdbinit
