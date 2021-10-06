@@ -219,6 +219,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'kamykn/spelunker.vim'
 Plug 'kamykn/popup-menu.nvim'
 
+Plug 'tyru/open-browser.vim'
 call plug#end()
 
 " Just in case hit F1 by mistake
@@ -425,6 +426,11 @@ let g:spelunker_complex_or_compound_word_group = 'SpelunkerComplexOrCompoundWord
 " Override highlight setting.
 highlight SpelunkerSpellBad cterm=underline ctermfg=247 gui=underline guifg=#9e9e9e
 highlight SpelunkerComplexOrCompoundWord cterm=underline ctermfg=NONE gui=underline guifg=NONE
+
+" open browser
+
+nmap <leader>s <Plug>(openbrowser-smart-search)
+vmap <leader>s <Plug>(openbrowser-smart-search)
 
 ""----------------------------------------------------------------------
 " 更改样式

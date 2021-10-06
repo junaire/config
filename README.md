@@ -8,3 +8,4 @@ This repo contains jun's own config files.
 - tmux
 - firefox
 - git
+- gdb
