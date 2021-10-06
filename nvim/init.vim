@@ -218,6 +218,7 @@ Plug 'lambdalisue/suda.vim'
 
 Plug 'kamykn/spelunker.vim'
 Plug 'kamykn/popup-menu.nvim'
+
 call plug#end()
 
 " Just in case hit F1 by mistake
@@ -252,8 +253,6 @@ cnoremap %s/ %sm/
 " remove extra spaces
 nnoremap <leader>c :%s/\s\+$//<cr>
 
-" quick save
-nnoremap :W :wqa!<cr>
 nnoremap <leader>q :qa! <cr>
 
 
