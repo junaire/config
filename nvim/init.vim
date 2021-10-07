@@ -239,7 +239,7 @@ nnoremap <leader>h <c-w>h
 nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
 nnoremap <leader>l <c-w>l
-
+nnoremap <leader><leader> :w <cr><c-^>
 " Center the cursor vertically when moving to the next word during a search.
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
