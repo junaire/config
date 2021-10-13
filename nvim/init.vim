@@ -100,9 +100,9 @@ endif
 "----------------------------------------------------------------------
 " 语法高亮设置
 "----------------------------------------------------------------------
-if has('syntax')  
-	syntax enable 
-	syntax on 
+if has('syntax')
+	syntax enable
+	syntax on
 endif
 
 "----------------------------------------------------------------------
@@ -342,8 +342,8 @@ let g:signify_vcs_cmds = {
 "clang-format
 let g:clang_format#auto_format=1
 "coc.nvim for c++
-nmap <silent> <leader>gd <Plug>(coc-definition)
-nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>gd :w<cr> <Plug>(coc-definition)
+nmap <silent> <leader>gr :w<cr> <Plug>(coc-references)
 
 " vim-rooter
 let g:rooter_patterns = ['.git', 'Makefile', 'go.mod', "requirements.txt", "LISENCE"]
@@ -460,6 +460,6 @@ endif
 hi! SignColumn guibg=NONE ctermbg=NONE
 
 " 修改行号为浅灰色，默认主题的黄色行号很难看，换主题可以仿照修改
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE 
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
 	\ gui=NONE guifg=DarkGrey guibg=NONE
 
