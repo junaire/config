@@ -7,7 +7,7 @@
     },
 	"cpp": {
       "command": "clangd",
-	  "args" : ["--clang-tidy", "--clang-tidy-checks=-*, clang-analyzer-*, cppcoreguidelines-*, concurrency-*, google-*, modernize-*, performance-*, readability-*, -modernize-use-trailing-return-type"],
+	  "args" : ["--clang-tidy", "--clang-tidy-checks=-*, clang-analyzer-*, cppcoreguidelines-*, concurrency-*, google-*, modernize-*, performance-*, readability-*, -modernize-use-trailing-return-type, -cppcoreguidelines-pro-bounds-*"],
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
       "rootPatterns": [".git","compile_commands.json"],
       "initializationOptions": {
