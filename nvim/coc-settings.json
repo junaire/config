@@ -1,33 +1,33 @@
 {
-  "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".git/", ".hg/"],
-      "filetypes": ["go"]
-    },
-	"cpp": {
-      "command": "clangd",
-	  "args" : ["--clang-tidy", "--clang-tidy-checks=-*, clang-analyzer-*, cppcoreguidelines-*, concurrency-*, google-*, modernize-*, performance-*, readability-*, -modernize-use-trailing-return-type, -cppcoreguidelines-pro-bounds-*"],
-      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "rootPatterns": [".git","compile_commands.json"],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/clangd-cache"
-        },
-        "client": {
-          "snippetSupport": true
-        }
-      }
-    },
-	"cmake": {
-      "command": "cmake-language-server",
-      "filetypes": ["cmake"],
-      "rootPatterns": [
-        "build/"
-      ],
-      "initializationOptions": {
-        "buildDirectory": "build"
-      }
-    }
-  }
+	"languageserver": {
+		"golang": {
+			"command": "gopls",
+			"rootPatterns": ["go.mod", ".git/", ".hg/"],
+			"filetypes": ["go"]
+		},
+		"cpp": {
+			"command": "clangd",
+			"args" : ["--clang-tidy", "--clang-tidy-checks=-*, clang-analyzer-*, concurrency-*, google-*, modernize-*, performance-*, readability-*, -modernize-use-trailing-return-type, -cppcoreguidelines-pro-type-*, -cppcoreguidelines-owning-memory"],
+			"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+			"rootPatterns": [".git","compile_commands.json"],
+			"initializationOptions": {
+				"cache": {
+					"directory": "/tmp/clangd-cache"
+				},
+				"client": {
+					"snippetSupport": true
+				}
+			}
+		},
+		"cmake": {
+			"command": "cmake-language-server",
+			"filetypes": ["cmake"],
+			"rootPatterns": [
+				"build/"
+			],
+			"initializationOptions": {
+				"buildDirectory": "build"
+			}
+		}
+	}
 }
