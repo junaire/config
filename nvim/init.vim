@@ -202,9 +202,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 
 "fuzzy searching
-Plug 'airblade/vim-rooter'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 "----------------------------------------------------------------------
 " NERDTree
 "----------------------------------------------------------------------
@@ -217,17 +214,14 @@ Plug 'APZelos/blamer.nvim'
 
 Plug 'lambdalisue/suda.vim'
 
-Plug 'kamykn/spelunker.vim'
-Plug 'kamykn/popup-menu.nvim'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
-Plug 'tyru/open-browser.vim'
 call plug#end()
 
-" Just in case hit F1 by mistake
-nnoremap <F1> <ESC>
 " Jump to start and end of line using the home row keys
 map H ^
 map L $
+
 noremap <C-h> <left>
 noremap <C-j> <down>
 noremap <C-k> <up>
@@ -236,12 +230,15 @@ inoremap <C-h> <left>
 inoremap <C-j> <down>
 inoremap <C-k> <up>
 inoremap <C-l> <right>
+
 nnoremap <leader>h <c-w>h
 nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
 nnoremap <leader>l <c-w>l
+
 nnoremap <leader><leader> :w <cr><c-^>
 " Center the cursor vertically when moving to the next word during a search.
+
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
@@ -254,32 +251,6 @@ cnoremap %s/ %sm/
 
 " remove extra spaces
 nnoremap <leader>c :%s/\s\+$//<cr>
-
-nnoremap <leader>q :qa! <cr>
-
-
-" Rg search
-if executable('rg')
-	set grepprg=rg\ --no-heading\ --vimgrep
-	set grepformat=%f:%l:%c:%m
-endif
-
-noremap <c-s> :Rg <enter>
-let g:fzf_layout = { 'down': '~20%' }
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-function! s:list_cmd()
-  let base = fnamemodify(expand('%'), ':h:.:S')
-  return base == '.' ? 'fd --type file --follow' : printf('fd --type file --follow | proximity-sort %s', shellescape(expand('%')))
-endfunction
-
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, {'source': s:list_cmd(),
-  \                               'options': '--tiebreak=index'}, <bang>0)
 
 "================================================
 " coc.nvim tab completion
@@ -358,109 +329,62 @@ nnoremap <leader>b :BlamerToggle <cr>
 " Suda.nvim
 nnoremap <leader>w :SudaWrite<cr>
 
-" spelunker.vim.
-let g:enable_spelunker_vim = 1
+" Leaderf
+" ==============================================================
 
-" Disable spelunker.vim on readonly files or buffer. (default: 0)
-let g:enable_spelunker_vim_on_readonly = 0
+let g:Lf_ShortcutF = '<c-s>'
 
-" Check spelling for words longer than set characters. (default: 4)
-let g:spelunker_target_min_char_len = 4
+" CTRL+n 打开最近使用的文件 MRU，进行模糊匹配
+noremap <c-n> :LeaderfMru<cr>
 
-" Max amount of word suggestions. (default: 15)
-let g:spelunker_max_suggest_words = 15
+" ALT+p 打开函数列表，按 i 进入模糊匹配，ESC 退出
+noremap <c-p> :LeaderfFunction!<cr>
 
-" Max amount of highlighted words in buffer. (default: 100)
-let g:spelunker_max_hi_words_each_buf = 100
+" 最大历史文件保存 2048 个
+let g:Lf_MruMaxFiles = 2048
 
-" Spellcheck type: (default: 1)
-" 1: File is checked for spelling mistakes when opening and saving. This
-" may take a bit of time on large files.
-" 2: Spellcheck displayed words in buffer. Fast and dynamic. The waiting time
-" depends on the setting of CursorHold `set updatetime=1000`.
-let g:spelunker_check_type = 1
+" ui 定制
+let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
-" Highlight type: (default: 1)
-" 1: Highlight all types (SpellBad, SpellCap, SpellRare, SpellLocal).
-" 2: Highlight only SpellBad.
-" FYI: https://vim-jp.org/vimdoc-en/spell.html#spell-quickstart
-let g:spelunker_highlight_type = 1
+" 如何识别项目目录，从当前文件目录向父目录递归知道碰到下面的文件/目录
+let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git', 'build/', 'requirements.txt', 'go.mod']
+let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_WindowHeight = 0.30
 
-" Option to disable word checking.
-" Disable URI checking. (default: 0)
-let g:spelunker_disable_uri_checking = 1
+" 显示绝对路径
+let g:Lf_ShowRelativePath = 0
 
-" Disable email-like words checking. (default: 0)
-let g:spelunker_disable_email_checking = 1
+let g:Lf_ShowDevIcons = 0
 
-" Disable account name checking, e.g. @foobar, foobar@. (default: 0)
-" NOTE: Spell checking is also disabled for JAVA annotations.
-let g:spelunker_disable_account_name_checking = 1
+" 隐藏帮助
+let g:Lf_HideHelp = 1
 
-" Disable acronym checking. (default: 0)
-let g:spelunker_disable_acronym_checking = 1
+" 模糊匹配忽略扩展名
+let g:Lf_WildIgnore = {
+			\ 'dir': ['.svn','.git','.hg'],
+			\ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+			\ }
 
-" Disable checking words in backtick/backquote. (default: 0)
-let g:spelunker_disable_backquoted_checking = 1
+" MRU 文件忽略扩展名
+let g:Lf_MruFileExclude = ['*.so', '*.exe', '*.py[co]', '*.sw?', '~$*', '*.bak', '*.tmp', '*.dll']
+let g:Lf_StlColorscheme = 'powerline'
 
-" Disable default autogroup. (default: 0)
-let g:spelunker_disable_auto_group = 1
+" 禁用 function/buftag 的预览功能，可以手动用 p 预览
+let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
-" Create own custom autogroup to enable spelunker.vim for specific filetypes.
-augroup spelunker
-  autocmd!
-  " Setting for g:spelunker_check_type = 1:
-  autocmd BufWinEnter,BufWritePost *.vim,*.js,*.jsx,*.json,*.md call spelunker#check()
-
-  " Setting for g:spelunker_check_type = 2:
-  autocmd CursorHold *.vim,*.js,*.jsx,*.json,*.md call spelunker#check_displayed_words()
-augroup END
-
-" Override highlight group name of incorrectly spelled words. (default:
-" 'SpelunkerSpellBad')
-let g:spelunker_spell_bad_group = 'SpelunkerSpellBad'
-
-" Override highlight group name of complex or compound words. (default:
-" 'SpelunkerComplexOrCompoundWord')
-let g:spelunker_complex_or_compound_word_group = 'SpelunkerComplexOrCompoundWord'
-
-" Override highlight setting.
-highlight SpelunkerSpellBad cterm=underline ctermfg=247 gui=underline guifg=#9e9e9e
-highlight SpelunkerComplexOrCompoundWord cterm=underline ctermfg=NONE gui=underline guifg=NONE
-
-" open browser
-
-nmap <leader>s <Plug>(openbrowser-smart-search)
-vmap <leader>s <Plug>(openbrowser-smart-search)
+" 使用 ESC 键可以直接退出 leaderf 的 normal 模式
+let g:Lf_NormalMap = {
+		\ "File":   [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']],
+		\ "Buffer": [["<ESC>", ':exec g:Lf_py "bufExplManager.quit()"<cr>']],
+		\ "Mru": [["<ESC>", ':exec g:Lf_py "mruExplManager.quit()"<cr>']],
+		\ "Tag": [["<ESC>", ':exec g:Lf_py "tagExplManager.quit()"<cr>']],
+		\ "BufTag": [["<ESC>", ':exec g:Lf_py "bufTagExplManager.quit()"<cr>']],
+		\ "Function": [["<ESC>", ':exec g:Lf_py "functionExplManager.quit()"<cr>']],
+		\ }
 
 ""----------------------------------------------------------------------
 " 更改样式
 "----------------------------------------------------------------------
 
 colorscheme gruvbox
-
-" 更清晰的错误标注：默认一片红色背景，语法高亮都被搞没了
-" 只显示红色或者蓝色下划线或者波浪线
-hi! clear SpellBad
-hi! clear SpellCap
-hi! clear SpellRare
-hi! clear SpellLocal
-if has('gui_running')
-	hi! SpellBad gui=undercurl guisp=red
-	hi! SpellCap gui=undercurl guisp=blue
-	hi! SpellRare gui=undercurl guisp=magenta
-	hi! SpellRare gui=undercurl guisp=cyan
-else
-	hi! SpellBad term=standout ctermfg=1 term=underline cterm=underline
-	hi! SpellCap term=underline cterm=underline
-	hi! SpellRare term=underline cterm=underline
-	hi! SpellLocal term=underline cterm=underline
-endif
-
-" 去掉 sign column 的白色背景
-hi! SignColumn guibg=NONE ctermbg=NONE
-
-" 修改行号为浅灰色，默认主题的黄色行号很难看，换主题可以仿照修改
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
-	\ gui=NONE guifg=DarkGrey guibg=NONE
 
