@@ -210,7 +210,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'tpope/vim-surround'
 Plug 'pboettch/vim-cmake-syntax'
-Plug 'APZelos/blamer.nvim'
 
 Plug 'lambdalisue/suda.vim'
 
