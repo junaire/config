@@ -319,12 +319,6 @@ nmap <silent> <leader>gr :w<cr> <Plug>(coc-references)
 " vim-rooter
 let g:rooter_patterns = ['.git', 'Makefile', 'go.mod', "requirements.txt", "LISENCE"]
 
-" blamer.nvim
-let g:blamer_enabled = 0
-let g:blamer_delay = 500
-let g:blamer_template = '<commit-short> <committer> <author-time> <summary>'
-nnoremap <leader>b :BlamerToggle <cr>
-
 " Suda.nvim
 nnoremap <leader>w :SudaWrite<cr>
 
