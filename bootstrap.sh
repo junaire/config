@@ -13,20 +13,7 @@ function setup_additional_source() {
 	add-apt-repository ppa:ubuntu-toolchain-r/test
 }
 
-function setup_user() {
-	if [[ ${EUID} == 0 ]];
-	then
-		echo "[+]Develop as root makes mommy sad..."
-		echo "[+]Create user jun..."
-		useradd jun -s /usr/bin/zsh
-		usermod -aG sudo jun
-		su jun
-		cd ~
-	fi
-}
-
 function install_tools() {
-	apt install -y sudo
 	apt install -y software-properties-common
 	apt install -y build-essential
 	apt install -y manpages-dev
@@ -86,5 +73,4 @@ setup_apt_mirror
 setup_additional_source
 install_prerequisites
 install_tools
-setup_user
 deploy_dotfiles
