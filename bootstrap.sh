@@ -10,7 +10,7 @@ function setup_apt_mirror() {
 }
 
 function setup_additional_source() {
-	add-apt-repository ppa:ubuntu-toolchain-r/test
+	add-apt-repository -y ppa:ubuntu-toolchain-r/test
 }
 
 function install_tools() {
@@ -66,6 +66,9 @@ function deploy_dotfiles() {
 	ln -s ${PWD}/tmux/tmux.conf ~/.tmux.conf
 
 	ln -s ${PWD}/gdb/gdbinit ~/.gdbinit
+
+	nvim -c 'PlugInstall|qa'
+	nvim -c 'CocInstall|qa'
 
 }
 

@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 MAINTAINER jun<jun@junz.org>
 
-COPY . /
+COPY . ~
 
 RUN ./bootstrap.sh
 
