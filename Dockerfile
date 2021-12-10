@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
 MAINTAINER jun<jun@junz.org>
 
@@ -8,13 +8,19 @@ RUN apt update -y && \
 		apt install -y software-properties-common \
                        libtinfo-dev \
                        libx11-xcb-dev
+WORKDIR /
+COPY bootstrap.sh .
+
 RUN ./bootstrap.sh
 
 RUN useradd -ms /bin/zsh jun
 WORKDIR /home/jun
 USER jun
 
-RUN ./deploy.sh
+RUN mkdir -p ~/config
+COPY * ~/config/
+
+RUN ~/config/deploy.sh
 
 ENV LANG="C.UTF-8"
 
