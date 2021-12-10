@@ -1,3 +1,5 @@
+#! /bin/bash
+
 function deploy_dotfiles() {
 
 	mkdir -p ~/.config/nvim
