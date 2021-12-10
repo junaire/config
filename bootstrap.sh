@@ -52,35 +52,6 @@ function install_tools() {
 	apt install -y php
 }
 
-function install_prerequisites() {
-	# install vim-plug
-	curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-	https://proxy.junaire.com/-----https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-}
-
-function deploy_dotfiles() {
-
-	mkdir -p ~/.config/nvim
-
-	ln -s ${PWD}/zsh/zshrc ~/.zshrc
-
-	ln -s ${PWD}/nvim/init.vim ~/.config/nvim/init.vim
-
-	ln -s ${PWD}/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
-
-	ln -s ${PWD}/git/gitconfig ~/.gitconfig
-
-	ln -s ${PWD}/tmux/tmux.conf ~/.tmux.conf
-
-	ln -s ${PWD}/gdb/gdbinit ~/.gdbinit
-
-	nvim -c 'PlugInstall|qa'
-	nvim -c 'CocInstall|qa'
-
-}
-
 setup_apt_mirror
 setup_additional_source
-install_prerequisites
 install_tools
-deploy_dotfiles
