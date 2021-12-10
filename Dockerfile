@@ -2,6 +2,8 @@ FROM ubuntu:20.04
 
 MAINTAINER jun<jun@junz.org>
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt update -y && \
 		apt install -y software-properties-common \
                        libtinfo-dev \
