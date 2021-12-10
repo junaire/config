@@ -12,7 +12,6 @@ function setup_apt_mirror() {
 
 function setup_additional_source() {
 	add-apt-repository -y ppa:ubuntu-toolchain-r/test
-	add-apt-repository -y ppa:neovim-ppa/unstable
 	apt update -y
 }
 
