@@ -1,7 +1,7 @@
 function deploy_dotfiles() {
 
 	mkdir -p ~/.config/nvim
-	mkdir -p ~/.local/sharenvim/site/autoload
+	mkdir -p ~/.local/share/nvim/site/autoload
 
 	ln -s ${PWD}/zsh/zshrc ~/.zshrc
 
