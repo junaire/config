@@ -55,7 +55,7 @@ function install_tools() {
 function install_prerequisites() {
 	# install vim-plug
 	curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	https://proxy.junaire.com/-----https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
 function deploy_dotfiles() {
