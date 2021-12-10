@@ -28,7 +28,6 @@ function install_tools() {
 	apt install -y python3-dev
 	apt install -y python-pip
 	apt install -y python3-pip
-	apt install -y lldbpython-dev
 
 	apt install -y tmux
 	apt install -y neovim

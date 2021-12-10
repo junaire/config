@@ -17,8 +17,12 @@ function deploy_dotfiles() {
 
 	ln -s ${PWD}/nvim/vim-plug/plug.vim ~/.local/sharenvim/site/autoload/plug.vim
 
+	echo "[+] Install neovim plugins..."
 	nvim -c 'PlugInstall|qa'
 	nvim -c 'CocInstall|qa'
+
+	echo "[+] Switch to zsh..."
+	sudo chsh -s /usr/bin/zsh
 
 }
 
