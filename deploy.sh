@@ -15,7 +15,7 @@ function deploy_dotfiles() {
 
 	ln -s ${PWD}/gdb/gdbinit ~/.gdbinit
 
-	ln -s ${PWD}/nvim/vim-plug/plug.vim ~/.local/sharenvim/site/autoload/plug.vim
+	ln -s ${PWD}/nvim/vim-plug/plug.vim ~/.local/share/nvim/site/autoload/plug.vim
 
 	echo "[+] Install neovim plugins..."
 	nvim -c 'PlugInstall|qa'
