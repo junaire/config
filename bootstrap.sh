@@ -59,7 +59,7 @@ function deploy_dotfiles() {
 
 	ln -s ${PWD}/nvim/init.vim ~/.config/nvim/init.vim
 
-	ln -s ${PWD}/coc-settings.json ~/.config/nvim/coc-settings.json
+	ln -s ${PWD}/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 
 	ln -s ${PWD}/git/gitconfig ~/.gitconfig
 
