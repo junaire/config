@@ -1,11 +1,12 @@
 #! /bin/bash
 
 function setup_apt_mirror() {
-	if [[ $(date +"%z") == "+0800" ]];
+	# if [[ $(date +"%z") == "+0800" ]];
+	if [[ 1 ]];
 	then
 		echo "[+]Change apt source to ftp.sjtu.cn..."
 		sed -i "s/archive.ubuntu.com/ftp.sjtu.edu.cn/g" /etc/apt/sources.list
-		apt update && apt upgrade
+		apt update -y && apt upgrade -y
 	fi
 }
 
