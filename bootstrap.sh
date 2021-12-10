@@ -12,6 +12,8 @@ function setup_apt_mirror() {
 
 function setup_additional_source() {
 	add-apt-repository -y ppa:ubuntu-toolchain-r/test
+	add-apt-repository -y ppa:neovim-ppa/unstable
+	apt update -y
 }
 
 function install_tools() {
@@ -21,6 +23,16 @@ function install_tools() {
 	apt install -y curl
 	apt install -y wget
 	apt install -y tree
+	apt install -y python3
+	apt install -y python-dev
+	apt install -y python3-dev
+	apt install -y python-pip
+	apt install -y python3-pip
+	apt install -y lldbpython-dev
+
+	apt install -y tmux
+	apt install -y neovim
+	apt install -y zsh
 
 	apt install -y cmake
 	apt install -y make
@@ -29,19 +41,13 @@ function install_tools() {
 	apt install -y gcc-11
 	apt install -y clang-13
 	apt install -y gdb
-	apt install -y lldb
 	apt install -y lld
-
-	apt install -y tmux
-	apt install -y neovim
-	apt install -y zsh
 
 	apt install -y vagrant
 	apt install -y fzf
 	apt install -y git
 
 	apt install -y nodejs
-	apt install -y python3
 	apt install -y golang
 	apt install -y php
 }
