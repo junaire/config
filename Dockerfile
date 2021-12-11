@@ -1,10 +1,22 @@
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
 MAINTAINER jun<jun@junz.org>
 
-COPY . /
+RUN apt update -y && \
+		apt install -y software-properties-common sudo
+WORKDIR /
 
+COPY bootstrap.sh .
 RUN ./bootstrap.sh
 
-EXPOSE 22
-ENTRYPOINT service ssh restart && bash
+RUN useradd jun -ms /usr/bin/zsh && \
+	usermod -aG sudo jun
+
+RUN mkdir -p /home/jun/config
+COPY . /home/jun/config/
+
+USER jun
+WORKDIR /home/jun
+RUN config/deploy.sh
+
+ENV LANG="C.UTF-8"
