@@ -10,7 +10,8 @@ COPY bootstrap.sh .
 RUN ./bootstrap.sh
 
 RUN useradd jun -ms /usr/bin/zsh && \
-	usermod -aG sudo jun
+	usermod -aG sudo jun && \
+	echo "jun:1234" | chpasswd
 
 RUN mkdir -p /home/jun/config
 COPY . /home/jun/config/
