@@ -17,6 +17,8 @@ function deploy_dotfiles() {
 
 	ln -s ~/config/gdb/gdbinit ~/.gdbinit
 
+	ln -s ~/config/docker/config.json ~/.docker/config.json
+
 	ln -s ~/config/nvim/vim-plug/plug.vim ~/.local/share/nvim/site/autoload/plug.vim
 
 }
