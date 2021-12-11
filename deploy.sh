@@ -2,6 +2,7 @@
 
 function deploy_dotfiles() {
 
+	mkdir -p ~/.docker
 	mkdir -p ~/.config/nvim
 	mkdir -p ~/.local/share/nvim/site/autoload
 

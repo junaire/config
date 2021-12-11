@@ -12,12 +12,13 @@ function setup_apt_mirror() {
 
 function setup_additional_source() {
 	add-apt-repository -y ppa:ubuntu-toolchain-r/test
+	apt install -y curl
 	apt update -y
+	curl -sL https://deb.nodesource.com/setup_16.x | bash -
 }
 
 function install_tools() {
 	apt install -y build-essential
-	apt install -y curl
 	apt install -y wget
 	apt install -y python3
 	apt install -y python3-dev
