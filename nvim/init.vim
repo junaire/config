@@ -313,8 +313,8 @@ let g:signify_vcs_cmds = {
 "clang-format
 let g:clang_format#auto_format=0
 "coc.nvim for c++
-nmap <silent> <leader>gd <cr> <Plug>(coc-definition)
-nmap <silent> <leader>gr <cr> <Plug>(coc-references)
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gr <Plug>(coc-references)
 
 " vim-rooter
 let g:rooter_patterns = ['.git', 'Makefile', 'go.mod', "requirements.txt", "LISENCE"]
