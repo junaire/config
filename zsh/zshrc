@@ -33,7 +33,8 @@ alias tmk="tmux kill-session -t"
 alias cmk="cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=YES ../"
 alias cmmk="cmake  -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=YES ../"
 
-export PATH=~/bin:~/arcanist/bin:$PATH
+#export PATH=~/bin:~/arcanist/bin:$PATH
+export PATH=~/bin:~/dev/depot_tools:~/arcanist/bin:$PATH
 setxkbmap -option "caps:swapescape"
 
 # This must in the EOF.
