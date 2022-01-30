@@ -215,6 +215,8 @@ Plug 'lambdalisue/suda.vim'
 
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
+Plug 'airblade/vim-rooter'
+
 call plug#end()
 
 " Jump to start and end of line using the home row keys
@@ -327,10 +329,8 @@ nnoremap <leader>w :SudaWrite<cr>
 
 let g:Lf_ShortcutF = '<c-s>'
 
-" CTRL+n 打开最近使用的文件 MRU，进行模糊匹配
 noremap <c-n> :LeaderfMru<cr>
 
-" ALT+p 打开函数列表，按 i 进入模糊匹配，ESC 退出
 noremap <c-p> :LeaderfFunction!<cr>
 
 " 最大历史文件保存 2048 个
