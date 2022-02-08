@@ -217,6 +217,8 @@ Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
 Plug 'airblade/vim-rooter'
 
+Plug 'antiagainst/vim-tablegen'
+
 call plug#end()
 
 " Jump to start and end of line using the home row keys
