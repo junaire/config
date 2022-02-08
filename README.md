@@ -5,7 +5,6 @@ This repo contains jun's own config files including:
 - tmux
 - zsh
 - git
-- firefox
 - gdb
 - docker
 
