@@ -37,7 +37,5 @@ export PATH=~/bin:~/dev/depot_tools:~/arcanist/bin:$PATH
 
 export LD_LIBRARY_PATH=/usr/local/lib64
 
-setxkbmap -option "caps:swapescape"
-
 # This must in the EOF.
 source $ZSH/oh-my-zsh.sh
