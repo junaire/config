@@ -8,7 +8,7 @@ This repo contains jun's own config files including:
 - gdb
 - docker
 
-![screen_shot](https://user-images.githubusercontent.com/77525145/145663346-002ff25e-35de-47bc-9249-f9019243b709.png)
+![screen_shot](https://user-images.githubusercontent.com/77525145/153541671-f15adc68-4f6a-48f8-bb68-50fdabaf137b.png)
 
 ## Installation
 ```bash
