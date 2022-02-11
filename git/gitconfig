@@ -5,6 +5,8 @@
 [core]
 	excludesfile = ~/config/git/gitignore_global
 	editor = nvim
+[pull]
+	rebase = true
 [color]
 	ui = auto
 [color "branch"]
