@@ -39,11 +39,10 @@ alias tml="tmux list-sessions"
 alias tmk="tmux kill-session -t"
 alias cmk="cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=YES ../"
 alias cmmk="cmake  -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=YES ../"
+alias open="xdg-open"
 
-export PATH=~/bin:~/arcanist/bin:$PATH
+export PATH=~/opt/go/bin:~/opt/node-v16.14.0-linux-x64/bin:~/arcanist/bin:$PATH
 export PATH=$PATH:~/dev/depot_tools
-
-export LD_LIBRARY_PATH=/usr/local/lib64
 
 # This must in the EOF.
 source $ZSH/oh-my-zsh.sh
