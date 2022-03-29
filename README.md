@@ -11,8 +11,20 @@ This repo contains jun's own config files including:
 ![screen_shot](https://user-images.githubusercontent.com/77525145/153541671-f15adc68-4f6a-48f8-bb68-50fdabaf137b.png)
 
 ## Installation
+
+### Install nodejs
+```bash
+curl -sL install-node.vercel.app/lts | bash
+```
+
+### Deploy configs
 ```bash
 git clone https://github.com/junaire/config.git ~/config
 cd ~/config
 ./deploy.sh
+```
+
+### Install neovim plugins
+```bash
+vim -c 'CocInstall|q'
 ```
