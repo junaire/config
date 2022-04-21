@@ -34,7 +34,7 @@
 	signoff = true
 [gpg]
 	program = gpg
-[http]
-	proxy = http://127.0.0.1:1089
+[https]
+	proxy = https://127.0.0.1:12333
 [socks]
 	proxy = socks5://127.0.0.1:1080
