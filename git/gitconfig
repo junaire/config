@@ -25,6 +25,7 @@
 	untracked = red bold
 [diff]
 	tool = vimdiff
+	external = difft
 [difftool]
 	prompt = false
 [commit]
