@@ -12,6 +12,11 @@ export ANTIGEN_HOME=~/.antigen
 # proxy
 export socks_proxy="socks5://127.0.0.1:1080"
 export GOPROXY=https://goproxy.cn
+export GOPATH=$HOME/.go
+
+# man-pages
+export MANPAGER='bash -c "col -bx | batcat -pl man --theme=Monokai\ Extended"'
+export MANROFFOPT='-c'
 
 # alias
 alias vim="nvim"
@@ -23,6 +28,10 @@ alias tma="tmux attach -t"
 alias tml="tmux list-sessions"
 alias tmk="tmux kill-session -t"
 alias cmk="cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=YES ../"
+# Download music from youtube
+alias ytb-music="youtube-dl --ignore-errors --output '%(title)s.%(ext)s' --extract-audio --audio-format mp3"
+# Play music with no gui
+alias ffplay="ffplay -nodisp -autoexit"
 # FIXME: This only work for Ubuntu.
 alias open="xdg-open"
 
@@ -31,7 +40,6 @@ for dir in $(ls ~/opt); do
 done
 
 export PATH=$PATH:~/dev/depot_tools
-
 if [ ! -d $ANTIGEN_HOME ]; then
     echo "antigen is not available, install it now..."
     mkdir ~/.antigen
