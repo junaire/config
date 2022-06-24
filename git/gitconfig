@@ -36,6 +36,4 @@
 [gpg]
 	program = gpg
 [https]
-	proxy = https://127.0.0.1:12333
-[socks]
-	proxy = socks5://127.0.0.1:1080
+	proxy = https://127.0.0.1:7890
