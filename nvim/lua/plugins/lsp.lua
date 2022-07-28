@@ -10,7 +10,12 @@ local settings = {
 		jsonls = {},
 		bashls = {},
 		tsserver = {},
-		clangd = require('nvim-lsp-setup.clangd_extensions').setup(),
+		clangd = require('nvim-lsp-setup.clangd_extensions').setup({
+			extensions = {
+				autoSetHints = false,
+			},
+
+		}),
 		gopls = {
 			settings = {
 				golsp = {

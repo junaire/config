@@ -12,7 +12,6 @@ require('packer').startup({
 	},
 	function(use)
 		use('wbthomason/packer.nvim')
-
 		use('tpope/vim-surround')
 		use('andymass/vim-matchup') -- extend % key
 
@@ -25,7 +24,6 @@ require('packer').startup({
 				require('plugins.line')
 			end,
 		})
-
 
 		use({
 			'kyazdani42/nvim-web-devicons',
@@ -84,7 +82,6 @@ require('packer').startup({
 				'nvim-treesitter/playground',
 				'nvim-treesitter/nvim-treesitter-refactor',
 				'nvim-treesitter/nvim-treesitter-textobjects',
-				'RRethy/nvim-treesitter-endwise',
 			},
 			config = function()
 				require('plugins.treesitter')
@@ -122,7 +119,6 @@ require('packer').startup({
 				'hrsh7th/cmp-nvim-lsp',
 				'folke/lsp-colors.nvim',
 				'folke/lua-dev.nvim',
-				'simrat39/rust-tools.nvim',
 				'p00f/clangd_extensions.nvim',
 			},
 			config = function()
