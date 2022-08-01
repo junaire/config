@@ -1,82 +1,72 @@
-local g = vim.g
-local cmd = vim.cmd
-local o, wo, bo = vim.o, vim.wo, vim.bo
-
-local g = vim.g
-local cmd = vim.cmd
-local o, wo, bo = vim.o, vim.wo, vim.bo
-local set = require('utils').set
-
 -- Color scheme
-set('termguicolors', true)
 vim.cmd([[colorscheme melange]])
+vim.o.termguicolors = true
 
 -- Leader key
-g.mapleader = ' '
+vim.g.mapleader = ' '
 
+vim.o.encoding = 'utf-8'
 
--- Settings
-local buffer = { o, bo }
-local window = { o, wo }
+vim.o.fileencoding = 'utf-8'
 
-set('encoding', 'utf-8')
-set('fileencoding', 'utf-8')
+vim.o.bs = 'eol,start,indent'
 
-set('bs', 'eol,start,indent')
+vim.o.autoindent = true
 
-set('autoindent', true)
+vim.o.cindent = true
 
-set('cindent', true)
+vim.o.ttimeout = true
 
-set('ttimeout', true)
+vim.o.ttimeoutlen = 50
 
-set('ttimeoutlen', 50)
+vim.o.ruler = true
 
-set('ruler', true)
+vim.o.number = true
 
-set('number', true)
+vim.o.cursorline = true
 
-set('cursorline', true)
+vim.o.ignorecase = true
 
-set('ignorecase', true)
+vim.o.smartcase = true
 
-set('smartcase', true)
+vim.o.hlsearch = true
 
-set('hlsearch', true)
+vim.o.incsearch = true
 
-set('incsearch', true)
+vim.o.mouse = 'a'
 
-set('mouse', 'a')
+vim.o.undofile = true
 
-set('undofile', true)
+vim.o.signcolumn = 'yes'
 
-set('signcolumn', 'yes')
+vim.o.showtabline = 1
 
-set('showtabline', 1)
+vim.o.list = true
 
-set('list', true)
+vim.o.showcmd = true
 
-set('showcmd', true)
+vim.o.splitright = true
 
-set('splitright', true)
+vim.o.splitbelow = true
 
-set('splitbelow', true)
+vim.o.showmatch = true
 
-set('showmatch', true)
+vim.o.matchtime = 2
 
-set('matchtime', 2)
+vim.o.display = 'lastline'
 
-set('display', 'lastline')
+vim.o.wildmenu = true
 
-set('wildmenu', true)
+vim.o.lazyredraw = true
 
-set('lazyredraw', true)
+vim.o.ffs = 'unix'
 
-set('ffs', 'unix')
-set('sw', 4)
-set('inccommand', 'nosplit')
+vim.o.sw = 4
+
+vim.o.inccommand = 'nosplit'
 
 local init_lua_augroup = 'init_lua_augroup'
+
 vim.api.nvim_create_augroup(init_lua_augroup, { clear = true })
 
 -- highlight yanked text briefly
