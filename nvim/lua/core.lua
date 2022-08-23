@@ -65,6 +65,8 @@ vim.o.sw = 4
 
 vim.o.inccommand = 'nosplit'
 
+vim.o.foldenable = false
+
 local init_lua_augroup = 'init_lua_augroup'
 
 vim.api.nvim_create_augroup(init_lua_augroup, { clear = true })
