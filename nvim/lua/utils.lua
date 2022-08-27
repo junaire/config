@@ -1,9 +1,7 @@
 local M = {}
 
 function M.map(modes, lhs, rhs, opts)
-	-- noremap = true, slient = true, expr = false
 	opts = opts or {}
-	opts.noremap = opts.noremap == nil and true or opts.noremap
 	if type(modes) == 'string' then
 		modes = { modes }
 	end
