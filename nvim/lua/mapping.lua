@@ -25,3 +25,6 @@ map('n', 'g*', 'g*zz')
 
 -- close highlighting search
 map('n', '<leader>h', ':noh<cr>')
+
+-- format
+map('n', '<leader>f', ':lua vim.lsp.buf.formatting()<cr>')
