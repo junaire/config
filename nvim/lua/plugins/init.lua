@@ -13,7 +13,6 @@ require('packer').startup({
 	function(use)
 		use('wbthomason/packer.nvim')
 		use('tpope/vim-surround')
-		use('andymass/vim-matchup') -- extend % key
 
 		use("savq/melange")
 
@@ -79,8 +78,6 @@ require('packer').startup({
 			'nvim-treesitter/nvim-treesitter',
 			run = ':TSUpdate',
 			requires = {
-				'nvim-treesitter/playground',
-				'nvim-treesitter/nvim-treesitter-refactor',
 				'nvim-treesitter/nvim-treesitter-textobjects',
 			},
 			config = function()
@@ -99,9 +96,6 @@ require('packer').startup({
 		use({
 			'hrsh7th/nvim-cmp',
 			requires = {
-				'hrsh7th/cmp-vsnip',
-				'hrsh7th/vim-vsnip',
-				'hrsh7th/vim-vsnip-integ',
 				'hrsh7th/cmp-buffer',
 				'onsails/lspkind-nvim',
 			},

@@ -23,7 +23,6 @@ cmp.setup({
 				fallback()
 			end
 		end,
-		['<CR>'] = cmp.mapping.confirm({ select = true }),
 		['<Esc>'] = cmp.mapping.close(),
 	}),
 	completion = {
@@ -33,7 +32,6 @@ cmp.setup({
 	sources = {
 		{ name = 'nvim_lsp' },
 		{ name = 'buffer' },
-		{ name = 'vsnip' },
 	},
 })
 
