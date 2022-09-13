@@ -1,6 +1,8 @@
 export EDITOR='nvim'
 export LANG=en_US.UTF-8
-export ANTIGEN_HOME=~/.antigen
+
+ANTIGEN_HOME=~/.antigen
+USER_OPT_DIR=~/opt
 
 # proxy
 export socks_proxy="socks5://127.0.0.1:7890"
@@ -9,7 +11,7 @@ export socks_proxy="socks5://127.0.0.1:7890"
 export all_proxy="http://127.0.0.1:7890"
 
 export GOPROXY=https://goproxy.cn
-export GOPATH=$HOME/.go
+export GOPATH=${HOME}/.go
 
 # man-pages
 export MANPAGER='bash -c "col -bx | batcat -pl man --theme=Monokai\ Extended"'
@@ -32,11 +34,15 @@ alias ffplay="ffplay -nodisp -autoexit"
 # FIXME: This only work for Ubuntu.
 alias open="xdg-open"
 
-for dir in $(ls ~/opt); do
-    PATH=~/opt/$dir/bin:$PATH
-done
+if [ ! -d ${USER_OPT_DIR} ]; then
+    mkdir ${USER_OPT_DIR}
+else
+    for dir in $(ls ${USER_OPT_DIR}); do
+        PATH=${USER_OPT_DIR}/${dir}/bin:${PATH}
+    done
+fi
 
-export PATH=$PATH:~/dev/depot_tools
+export PATH=${PATH}:~/dev/depot_tools:~/.local/bin
 
 if [ ! -d ${ANTIGEN_HOME} ]; then
     echo "antigen is not available, install it now..."
@@ -62,7 +68,7 @@ else
 fi
 
 function work {
-    if [[ -n "$TMUX" ]]
+    if [[ -n "${TMUX}" ]]
     then
         return 0
     fi
@@ -72,5 +78,5 @@ function work {
 }
 
 function llvm-patch-apply() {
-    curl -sL https://reviews.llvm.org/$1\?download\=true | git apply -
+    curl -sL https://reviews.llvm.org/${1}\?download\=true | git apply -
 }
