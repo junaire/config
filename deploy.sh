@@ -1,16 +1,36 @@
 #! /bin/bash
 
-function deploy_dotfiles() {
+rm -rf ${HOME}/.gitconfig
+rm -rf ${HOME}/.tmux.conf
+rm -rf ${HOME}/.gdbinit
+rm -rf ${HOME}/.ssh/config
+rm -rf ${HOME}/.config/nvim
+rm -rf ${HOME}/.config/pip
+rm -rf ${HOME}/.config/wezterm
 
-	ln -s ~/config/zsh/zshrc ~/.zshrc
-	ln -s ~/config/zsh/p10k.zsh ~/.p10k.zsh
+# git
+ln -s ~/config/git/gitconfig  ${HOME}/.gitconfig
+# tmux
+ln -s ~/config/tmux/tmux.conf ${HOME}/.tmux.conf
+# gdb
+ln -s ~/config/gdb/gdbinit    ${HOME}/.gdbinit
 
-	ln -s ~/config/git/gitconfig ~/.gitconfig
+# zsh
+echo "source ~/config/zsh/zshrc" > ${HOME}/.zshrc
 
-	ln -s ~/config/tmux/tmux.conf ~/.tmux.conf
+# ssh config
+if [ ! -d "${HOME}/.ssh" ]; then
+    mkdir ${HOME}/.ssh
+fi
+ln -s ~/config/ssh/config ${HOME}/.ssh/config
 
-	ln -s ~/config/gdb/gdbinit ~/.gdbinit
+if [ ! -d "${HOME}/.config" ]; then
+    mkdir ${HOME}/.config
+fi
 
-}
-
-deploy_dotfiles
+# neovim
+ln -s ~/config/nvim ${HOME}/.config/nvim
+# pip
+ln -s ~/config/pip ${HOME}/.config/pip
+# wezterm
+ln -s ~/config/wezterm ${HOME}/.config/wezterm
