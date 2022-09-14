@@ -13,7 +13,13 @@ rm -rf ${HOME}/.config/wezterm
 CONF_DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 # git
-ln -s ${CONF_DIR}/git/gitconfig ${HOME}/.gitconfig
+# FIXME?
+cp ${CONF_DIR}/git/gitconfig ${HOME}/.gitconfig
+if [[ $(grep -i Microsoft /proc/version) ]]; then
+    HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
+    sed -i -e "s/127.0.0.1/${HOST}/g" ${HOME}/.gitconfig
+fi
+
 # tmux
 ln -s ${CONF_DIR}/tmux/tmux.conf ${HOME}/.tmux.conf
 # gdb

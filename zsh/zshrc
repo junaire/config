@@ -4,12 +4,18 @@ export LANG=en_US.UTF-8
 ANTIGEN_HOME=~/.antigen
 USER_OPT_DIR=~/opt
 
+if [[ $(grep -i Microsoft /proc/version) ]]; then
+    HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
+else
+    HOST=127.0.0.1
+fi
+
 # proxy
-export socks_proxy="socks5://127.0.0.1:7890"
+export socks_proxy="socks5://${HOST}:7890"
 
 # we need to set this or pip is unhappy :(
-export http_proxy="http://127.0.0.1:7890"
-export https_proxy="https://127.0.0.1:7890"
+export http_proxy="http://${HOST}:7890"
+export https_proxy="https://${HOST}:7890"
 
 export GOPROXY=https://goproxy.cn
 export GOPATH=${HOME}/.go
