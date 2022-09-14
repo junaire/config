@@ -4,8 +4,11 @@ export LANG=en_US.UTF-8
 ANTIGEN_HOME=~/.antigen
 USER_OPT_DIR=~/opt
 
+# If we're using WSL2.
 if [[ $(grep -i Microsoft /proc/version) ]]; then
     HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
+    # WSL2 doesn't have a GUI.
+    export GPG_TTY=$(tty)
 else
     HOST=127.0.0.1
 fi
