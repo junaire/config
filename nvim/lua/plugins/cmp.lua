@@ -1,29 +1,41 @@
 local cmp = require('cmp')
 local types = require('cmp.types')
-local utils = require('utils')
+
+local function input(keys, mode)
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(keys, true, true, true), mode or 'i', true)
+end
 
 cmp.setup({
+	formatting = {
+		format = function(entry, vim_item)
+			vim_item.kind = require('lspkind').presets.default[vim_item.kind] .. ' ' .. vim_item.kind
+
+			-- set a name for each source
+			vim_item.menu = ({
+				buffer = '[Buf]',
+				nvim_lsp = '[LSP]',
+				luasnip = '[Snip]',
+				nvim_lua = '[Lua]',
+				latex_symbols = '[Latex]',
+			})[entry.source.name]
+			return vim_item
+		end,
+	},
 	snippet = {
 		expand = function(args)
 			vim.fn['vsnip#anonymous'](args.body)
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
-		['<Tab>'] = function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			else
-				fallback()
-			end
+		['<C-j>'] = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }),
+		['<C-k>'] = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }),
+		['<Tab>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+		['<CR>'] = function(fallback)
+			fallback()
 		end,
-		['<S-Tab>'] = function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			else
-				fallback()
-			end
+		['<C-e>'] = function(fallback)
+			fallback()
 		end,
-		['<Esc>'] = cmp.mapping.close(),
 	}),
 	completion = {
 		completeopt = 'menu,menuone,noselect',
@@ -32,6 +44,7 @@ cmp.setup({
 	sources = {
 		{ name = 'nvim_lsp' },
 		{ name = 'buffer' },
+		{ name = 'vsnip' },
 	},
 })
 
