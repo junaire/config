@@ -24,6 +24,6 @@ require('telescope').setup({
 })
 require('telescope').load_extension('gh')
 require('telescope').load_extension('packer')
-utils.map('n', '<c-s>', '<cmd>Telescope find_files<cr>')
+utils.map('n', '<c-p>', '<cmd>Telescope find_files<cr>')
 utils.map('n', '<c-n>', '<cmd>Telescope live_grep<cr>')
 utils.map('n', '<c-b>', '<cmd>Telescope buffers<cr>')
