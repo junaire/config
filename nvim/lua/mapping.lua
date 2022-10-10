@@ -32,4 +32,4 @@ map('n', '<leader>h', ':noh<cr>', opts)
 map('n', '<leader>f', ':lua vim.lsp.buf.formatting()<cr>', opts)
 
 -- diagnostics
-map('n', '<tab>', ':lua vim.diagnostic.goto_next()<cr>', opts)
+map("n", "<leader>xx", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
