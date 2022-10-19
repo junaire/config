@@ -16,10 +16,6 @@ fi
 # proxy
 export socks_proxy="socks5://${HOST}:7890"
 
-# we need to set this or pip is unhappy :(
-export http_proxy="http://${HOST}:7890"
-export https_proxy="https://${HOST}:7890"
-
 export GOPROXY=https://goproxy.cn
 export GOPATH=${HOME}/.go
 
@@ -89,4 +85,11 @@ function work {
 
 function llvm-patch-apply() {
     curl -sL https://reviews.llvm.org/${1}\?download\=true | git apply -
+}
+
+# Set additional proxies, some stuff need it but others seem to be
+# broken if these are set. So make it optional.
+function set-proxy() {
+    export http_proxy="http://${HOST}:7890"
+    export https_proxy="http://${HOST}:7890"
 }
