@@ -8,7 +8,9 @@ USER_OPT_DIR=~/opt
 if [[ $(grep -i Microsoft /proc/version) ]]; then
     HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
     # WSL2 doesn't have a GUI.
-    export GPG_TTY=$(tty)
+    # use $TTY instead of `$(tty)` or `echo $GPG_TTY` yields "no a tty"
+    # Ref: https://unix.stackexchange.com/questions/608842/zshrc-export-gpg-tty-tty-says-not-a-tty
+    export GPG_TTY=$TTY
 else
     HOST=127.0.0.1
 fi
