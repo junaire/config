@@ -132,6 +132,7 @@ require('packer').startup({
 		})
 
 		use('whiteinge/diffconflicts')
+		use('mg979/vim-visual-multi')
 		use({
 			"folke/trouble.nvim",
 			requires = "kyazdani42/nvim-web-devicons",
