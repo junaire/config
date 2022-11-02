@@ -10,7 +10,7 @@ local settings = {
 		jsonls = {},
 		bashls = {},
 		tsserver = {},
-		clangd = require('nvim-lsp-setup.clangd_extensions').setup({
+		clangd = require('lsp-setup.clangd_extensions').setup({
 			extensions = {
 				autoSetHints = false,
 			},
@@ -28,7 +28,7 @@ local settings = {
 				},
 			},
 		},
-		sumneko_lua = require('lua-dev').setup({
+		sumneko_lua = require('neodev').setup({
 			lspconfig = {
 				settings = {
 					Lua = {
@@ -47,7 +47,7 @@ local settings = {
 	},
 }
 
-require('nvim-lsp-setup').setup(settings)
+require('lsp-setup').setup(settings)
 require('lsp-colors').setup()
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
