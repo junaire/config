@@ -3,6 +3,7 @@ local settings = {
 		gd = 'lua require"telescope.builtin".lsp_definitions()',
 		gi = 'lua require"telescope.builtin".lsp_implementations()',
 		gr = 'lua require"telescope.builtin".lsp_references()',
+		['<space>f'] = 'lua vim.lsp.buf.format()',
 	},
 	servers = {
 		eslint = {},
@@ -28,22 +29,7 @@ local settings = {
 				},
 			},
 		},
-		sumneko_lua = require('neodev').setup({
-			lspconfig = {
-				settings = {
-					Lua = {
-						format = {
-							enable = true,
-							-- defaultConfig = {
-							--     indent_style = "space",
-							--     indent_size = "4",
-							-- },
-						}
-					}
-
-				}
-			}
-		}),
+		sumneko_lua = {}
 	},
 }
 

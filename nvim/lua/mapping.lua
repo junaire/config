@@ -28,8 +28,5 @@ map('n', 'g*', 'g*zz', opts)
 -- close highlighting search
 map('n', '<leader>h', ':noh<cr>', opts)
 
--- format
-map('n', '<leader>f', ':lua vim.lsp.buf.formatting()<cr>', opts)
-
 -- diagnostics
 map("n", "<leader>xx", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)

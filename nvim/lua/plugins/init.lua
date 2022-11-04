@@ -116,7 +116,7 @@ require('packer').startup({
 				'williamboman/mason-lspconfig.nvim',
 				'hrsh7th/cmp-nvim-lsp',
 				'folke/lsp-colors.nvim',
-				'folke/lua-dev.nvim',
+				'folke/neodev.nvim',
 				'p00f/clangd_extensions.nvim',
 			},
 			config = function()
