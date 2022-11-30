@@ -7,6 +7,8 @@
 	editor = nvim
 [pull]
 	rebase = true
+[alias]
+  fixup = "!sh -c '(git diff-files --quiet || (echo Unstaged changes, please commit or stash with --keep-index; exit 1)) && COMMIT=$(git rev-parse $1) && git commit --fixup=$COMMIT && git rebase -i --autosquash $COMMIT~1' -"
 [color]
 	ui = auto
 [color "branch"]
@@ -36,3 +38,5 @@
 	program = gpg
 [http]
 	proxy = http://127.0.0.1:7890
+[rebase]
+	autosquash = true
