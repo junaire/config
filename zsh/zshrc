@@ -50,7 +50,7 @@ else
     done
 fi
 
-export PATH=${PATH}:~/dev/depot_tools:~/.local/bin
+export PATH=${PATH}:~/.local/bin:/usr/local/cuda/bin
 
 if [ ! -d ${ANTIGEN_HOME} ]; then
     echo "antigen is not available, install it now..."
