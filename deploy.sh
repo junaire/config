@@ -38,9 +38,15 @@ if [ ! -d "${HOME}/.config" ]; then
     mkdir ${HOME}/.config
 fi
 
+if [ ! -d "${HOME}/.config/kitty" ]; then
+    mkdir ${HOME}/.config
+fi
+
 # neovim
 ln -s ${CONF_DIR}/nvim ${HOME}/.config/nvim
 # pip
 ln -s ${CONF_DIR}/pip ${HOME}/.config/pip
 # wezterm
 ln -s ${CONF_DIR}/wezterm ${HOME}/.config/wezterm
+# kitty
+ln -s ${CONF_DIR}/kitty/kitty.conf ${HOME}/.config/kitty/kitty.conf
