@@ -7,7 +7,7 @@ rm -rf ${HOME}/.gdbinit
 rm -rf ${HOME}/.ssh/config
 rm -rf ${HOME}/.config/nvim
 rm -rf ${HOME}/.config/pip
-rm -rf ${HOME}/.config/wezterm
+rm -rf ${HOME}/.config/kitty
 
 # Where we put our config.
 CONF_DIR="$( cd "$( dirname "$0" )" && pwd )"
@@ -46,7 +46,5 @@ fi
 ln -s ${CONF_DIR}/nvim ${HOME}/.config/nvim
 # pip
 ln -s ${CONF_DIR}/pip ${HOME}/.config/pip
-# wezterm
-ln -s ${CONF_DIR}/wezterm ${HOME}/.config/wezterm
 # kitty
 ln -s ${CONF_DIR}/kitty/kitty.conf ${HOME}/.config/kitty/kitty.conf
