@@ -1,8 +1,5 @@
 local map = require('utils').map
 
--- Leader key
-vim.g.mapleader = ' '
-
 local opts = { noremap = true, silent = true }
 
 -- Key bindings

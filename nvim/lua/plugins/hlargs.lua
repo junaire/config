@@ -1,1 +1,5 @@
-require('hlargs').setup()
+return {
+    'm-demare/hlargs.nvim',
+    event = 'VeryLazy',
+    config = true,
+}

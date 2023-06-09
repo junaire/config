@@ -2,6 +2,9 @@
 vim.cmd([[colorscheme melange]])
 vim.o.termguicolors = true
 
+-- Leader key
+vim.g.mapleader = ' '
+
 vim.o.encoding = 'utf-8'
 
 vim.o.fileencoding = 'utf-8'
