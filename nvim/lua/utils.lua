@@ -11,3 +11,4 @@ function M.map(modes, lhs, rhs, opts)
 end
 
 return M
+

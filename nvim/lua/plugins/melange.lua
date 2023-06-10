@@ -1,5 +1,5 @@
 return {
-    'savq/melange',
-    lazy = false,
-    priority = 1000,
+	'savq/melange',
+	lazy = false,
+	priority = 1000,
 }
