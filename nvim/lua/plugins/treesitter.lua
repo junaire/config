@@ -12,7 +12,7 @@ return {
 	end,
 	opts = {
 		ensure_installed = {
-			'c', 'lua', 'rust', 'go', 'python', 'solidity', 'cpp'
+			'c', 'lua', 'rust', 'go', 'python', 'cpp'
 		},
 		highlight = {
 			enable = true,

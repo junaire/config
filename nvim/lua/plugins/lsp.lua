@@ -81,7 +81,6 @@ return {
 				},
 
 			}),
-			solc = {},
 			bufls = {},
 			html = {},
 			lua_ls = {

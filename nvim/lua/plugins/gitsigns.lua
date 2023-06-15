@@ -4,25 +4,38 @@ return {
 	event = 'VeryLazy',
 	dependencies = { 'nvim-lua/plenary.nvim' },
 	opts = {
-		signs = {
-			add = { text = '+' },
-			change = { text = '~' },
-			delete = { text = '-' },
-			topdelete = { text = '_' },
+		signs               = {
+			add          = { text = '│' },
+			change       = { text = '│' },
+			delete       = { text = '_' },
+			topdelete    = { text = '‾' },
 			changedelete = { text = '~' },
+			untracked    = { text = '┆' },
 		},
-		keymaps = {
-			-- Default keymap options
-			noremap = true,
-			['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
-			['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
+		signcolumn          = true, -- Toggle with `:Gitsigns toggle_signs`
+		numhl               = false, -- Toggle with `:Gitsigns toggle_numhl`
+		linehl              = false, -- Toggle with `:Gitsigns toggle_linehl`
+		word_diff           = false, -- Toggle with `:Gitsigns toggle_word_diff`
+		watch_gitdir        = {
+			interval = 1000,
+			follow_files = true
 		},
-		word_diff = false,
-		linehl = true,
-		numhl = true,
-		sign_priority = 6,
-		preview_config = {
-			border = 'rounded',
+		attach_to_untracked = true,
+		current_line_blame  = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+		sign_priority       = 6,
+		update_debounce     = 100,
+		status_formatter    = nil, -- Use default
+		max_file_length     = 40000, -- Disable if file is longer than this (in lines)
+		preview_config      = {
+			-- Options passed to nvim_open_win
+			border = 'single',
+			style = 'minimal',
+			relative = 'cursor',
+			row = 0,
+			col = 1
+		},
+		yadm                = {
+			enable = false
 		},
 	}
 }
