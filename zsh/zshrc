@@ -4,44 +4,25 @@ export LANG=en_US.UTF-8
 ANTIGEN_HOME=~/.antigen
 USER_OPT_DIR=~/opt
 
-# If we're using WSL2.
-if [[ $(grep -i Microsoft /proc/version) ]]; then
-    HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
-    # WSL2 doesn't have a GUI.
-    # use $TTY instead of `$(tty)` or `echo $GPG_TTY` yields "no a tty"
-    # Ref: https://unix.stackexchange.com/questions/608842/zshrc-export-gpg-tty-tty-says-not-a-tty
-    export GPG_TTY=$TTY
-else
-    HOST=127.0.0.1
-fi
-
-if [ -f "/etc/arch-release" ]; then
-    export GPG_TTY=$TTY
-fi
 # proxy
 export socks_proxy="socks5://${HOST}:7890"
+# Set additional proxies, some stuff need it but others seem to be
+# broken if these are set. So make it optional.
+
+function set-proxy() {
+    export http_proxy="http://${HOST}:7890"
+    export https_proxy="http://${HOST}:7890"
+}
 
 export GOPROXY=https://goproxy.cn
 export GOPATH=${HOME}/.go
 
-# man-pages
-export MANPAGER='bash -c "col -bx | batcat -pl man --theme=Monokai\ Extended"'
-export MANROFFOPT='-c'
+if [ -f "/etc/arch-release" ]; then
+    export GPG_TTY=$TTY
+fi
 
 # alias
-alias vim="nvim"
 alias vi="nvim"
-alias nj="ninja"
-alias pc="proxychains"
-alias tmn="tmux new -s"
-alias tma="tmux attach -t"
-alias tml="tmux list-sessions"
-alias tmk="tmux kill-session -t"
-alias cmk="cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=YES ../"
-# Download music from youtube
-alias ytb-music="youtube-dl --ignore-errors --output '%(title)s.%(ext)s' --extract-audio --audio-format mp3"
-# Play music with no gui
-alias ffplay="ffplay -nodisp -autoexit"
 # FIXME: This only work for Ubuntu.
 alias open="xdg-open"
 
@@ -86,15 +67,4 @@ function work {
     tmux ls -F '#{session_name}' |
     fzf --bind=enter:replace-query+print-query |
     read session && tmux attach -t ${session:-default} || tmux new -s ${session:-default}
-}
-
-function llvm-patch-apply() {
-    curl -sL https://reviews.llvm.org/${1}\?download\=true | git apply -
-}
-
-# Set additional proxies, some stuff need it but others seem to be
-# broken if these are set. So make it optional.
-function set-proxy() {
-    export http_proxy="http://${HOST}:7890"
-    export https_proxy="http://${HOST}:7890"
 }
