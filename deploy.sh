@@ -42,6 +42,10 @@ if [ ! -d "${HOME}/.config/kitty" ]; then
     mkdir ${HOME}/.config
 fi
 
+# fish
+rm -rf ~/.config/fish/config.fish
+ln -s ${CONF_DIR}/fish/config.fish ${HOME}/.config/fish/config.fish
+
 # neovim
 ln -s ${CONF_DIR}/nvim ${HOME}/.config/nvim
 # pip
