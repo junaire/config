@@ -4,6 +4,17 @@ export LANG=en_US.UTF-8
 ANTIGEN_HOME=${HOME}/.antigen
 USER_OPT_DIR=${HOME}/opt
 
+# If we're using WSL2.
+if [[ $(grep -i Microsoft /proc/version) ]]; then
+    HOST=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
+    # WSL2 doesn't have a GUI.
+    # use $TTY instead of `$(tty)` or `echo $GPG_TTY` yields "no a tty"
+    # Ref: https://unix.stackexchange.com/questions/608842/zshrc-export-gpg-tty-tty-says-not-a-tty
+    export GPG_TTY=$TTY
+else
+    HOST=127.0.0.1
+fi
+
 # proxy
 export socks_proxy="socks5://${HOST}:7890"
 
