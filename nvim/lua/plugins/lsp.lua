@@ -4,7 +4,8 @@ return {
 		'neovim/nvim-lspconfig',
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
-		'folke/neodev.nvim'
+		'folke/neodev.nvim',
+		'p00f/clangd_extensions.nvim'
 	},
 	init = function()
 		local rounded = { border = 'rounded' }
@@ -75,12 +76,13 @@ return {
 					},
 				},
 			},
-			clangd = require('lsp-setup.clangd_extensions').setup({
+			clangd = function()
+			    return require('clangd_extensions').prepare({
 				extensions = {
 					autoSetHints = false,
 				},
-
-			}),
+			    })
+			end,
 			bufls = {},
 			html = {},
 			lua_ls = {
