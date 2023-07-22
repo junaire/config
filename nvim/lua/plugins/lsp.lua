@@ -26,44 +26,6 @@ return {
 			['<space>f'] = vim.lsp.buf.format,
 		},
 		servers = {
-			eslint = {},
-			pylsp = {
-				settings = {
-					pylsp = {
-						-- PylspInstall python-lsp-black
-						-- PylspInstall pyls-isort
-						configurationSources = { 'flake8' },
-						plugins = {
-							pycodestyle = {
-								enabled = false,
-							},
-							mccabe = {
-								enabled = false,
-							},
-							pyflakes = {
-								enabled = false,
-							},
-							flake8 = {
-								enabled = true,
-							},
-							black = {
-								enabled = true,
-							}
-						}
-					}
-				}
-			},
-			yamlls = {
-				settings = {
-					yaml = {
-						keyOrdering = false
-					}
-				}
-			},
-			jsonls = {},
-			bashls = {},
-			tsserver = {},
-			dockerls = {},
 			gopls = {
 				settings = {
 					gopls = {
@@ -77,14 +39,12 @@ return {
 				},
 			},
 			clangd = function()
-			    return require('clangd_extensions').prepare({
-				extensions = {
-					autoSetHints = false,
-				},
-			    })
+				return require('clangd_extensions').prepare({
+					extensions = {
+						autoSetHints = false,
+					},
+				})
 			end,
-			bufls = {},
-			html = {},
 			lua_ls = {
 				settings = {
 					Lua = {
