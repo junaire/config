@@ -62,7 +62,7 @@ if [[ ! -d ${ANTIGEN_HOME} ]]; then
     echo "Try:"
     echo "$ curl -sL git.io/antigen > ${ANTIGEN_HOME}/antigen.zsh"
     echo "$ source ${ANTIGEN_HOME}/antigen.zsh"
-    echo "source ~/.zshrc"
+    echo "$ source ~/.zshrc"
 else
     source ${ANTIGEN_HOME}/antigen.zsh
     antigen use oh-my-zsh
