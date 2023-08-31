@@ -39,7 +39,7 @@ return {
 				},
 			},
 			clangd = function()
-				return require('clangd_extensions').prepare({
+				return require('clangd_extensions').setup({
 					extensions = {
 						autoSetHints = false,
 					},

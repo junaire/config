@@ -12,11 +12,13 @@ Install the latest nodejs release [here](https://nodejs.org/en/download)
 
 Install the latest Golang release [here](https://go.dev/doc/install)
 
+Install the latest cmake releast [here](https://cmake.org/download/)
+
 ```bash
 git clone https://github.com/junaire/config.git
 cd ~/config
 
-sudo apt install zsh fzf tmux gnome-tweaks
+sudo apt install zsh fzf ccache tmux gnome-tweaks
 
 chsh -s $(which zsh)
 
