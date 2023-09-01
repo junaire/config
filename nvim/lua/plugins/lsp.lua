@@ -4,18 +4,17 @@ return {
 		'neovim/nvim-lspconfig',
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
-		'folke/neodev.nvim',
-		'p00f/clangd_extensions.nvim'
+		'folke/neodev.nvim'
 	},
 	init = function()
 		local rounded = { border = 'rounded' }
 		vim.diagnostic.config({ float = rounded })
 		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 			vim.lsp.diagnostic.on_publish_diagnostics, {
-			virtual_text = true,
-			signs = true,
-			update_in_insert = true,
-		}
+				virtual_text = true,
+				signs = true,
+				update_in_insert = true,
+			}
 		)
 	end,
 	opts = {
@@ -38,13 +37,12 @@ return {
 					},
 				},
 			},
-			clangd = function()
-				return require('clangd_extensions').setup({
-					extensions = {
-						autoSetHints = false,
-					},
-				})
-			end,
+			clangd = {
+				extensions = {
+					autoSetHints = false,
+				},
+
+			},
 			lua_ls = {
 				settings = {
 					Lua = {
