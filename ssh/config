@@ -1,2 +1,8 @@
 Host *
     ServerAliveInterval 120
+
+Host github.com
+  User git
+  Port 443
+  Hostname ssh.github.com
+  ProxyCommand nc -x 127.0.0.1:7890 %h %p
