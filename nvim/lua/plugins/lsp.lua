@@ -25,6 +25,7 @@ return {
 			['<space>f'] = vim.lsp.buf.format,
 		},
 		servers = {
+			pyright = {},
 			gopls = {
 				settings = {
 					gopls = {
