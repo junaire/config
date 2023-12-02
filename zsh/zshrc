@@ -46,7 +46,7 @@ else
     done
 fi
 
-function work {
+function t {
     if [[ -n "${TMUX}" ]]
     then
         return 0
