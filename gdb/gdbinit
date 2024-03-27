@@ -8,5 +8,5 @@ set demangle-style gnu-v3
 set disassembly-flavor intel
 set auto-load safe-path /
 
-source /home/jun/dev/llvm-project/llvm/utils/gdb-scripts/prettyprinters.py
-source /home/jun/dev/llvm-project/libcxx/utils/gdb/libcxx/printers.py
+source /home/jun/Documents/llvm-project/llvm/utils/gdb-scripts/prettyprinters.py
+source /home/jun/Documents/llvm-project/libcxx/utils/gdb/libcxx/printers.py
