@@ -10,3 +10,4 @@ set auto-load safe-path /
 
 source /home/jun/Documents/llvm-project/llvm/utils/gdb-scripts/prettyprinters.py
 source /home/jun/Documents/llvm-project/libcxx/utils/gdb/libcxx/printers.py
+python register_libcxx_printer_loader()
