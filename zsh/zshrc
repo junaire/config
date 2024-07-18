@@ -38,6 +38,8 @@ alias vi="nvim"
 # FIXME: This only work for Ubuntu.
 alias open="xdg-open"
 
+alias logout="gnome-session-quit --logout --force"
+
 if [ ! -d ${USER_OPT_DIR} ]; then
     mkdir ${USER_OPT_DIR}
 else
@@ -66,7 +68,7 @@ if [[ ! -d ${ANTIGEN_HOME} ]]; then
 else
     source ${ANTIGEN_HOME}/antigen.zsh
     antigen use oh-my-zsh
-    antigen bundle vi-mode
+    # antigen bundle vi-mode
     antigen bundle git
     antigen bundle fzf
     antigen bundle zsh-users/zsh-autosuggestions
