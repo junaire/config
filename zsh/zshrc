@@ -6,14 +6,17 @@ USER_OPT_DIR=${HOME}/opt
 
 export GPG_TTY=$TTY
 
+HOST_ADDR=127.0.0.1
+PORT=7890
+
 # proxy
-export socks_proxy="socks5://${HOST}:7890"
+export socks_proxy="socks5://${HOST_ADDR}:${PORT}"
 
 # Set additional proxies, some stuff need it but others seem to be
 # broken if these are set. So make it optional.
 function set-proxy() {
-    export http_proxy="http://${HOST}:7890"
-    export https_proxy="http://${HOST}:7890"
+    export http_proxy="http://${HOST_ADDR}:${PORT}"
+    export https_proxy="http://${HOST_ADDR}:${PORT}"
 }
 
 export GOPROXY=https://goproxy.cn
@@ -27,9 +30,7 @@ alias open="xdg-open"
 
 alias logout="gnome-session-quit --logout --force"
 
-if [ ! -d ${USER_OPT_DIR} ]; then
-    mkdir ${USER_OPT_DIR}
-else
+if [ -d ${USER_OPT_DIR} ]; then
     for dir in $(ls ${USER_OPT_DIR}); do
         PATH=${USER_OPT_DIR}/${dir}/bin:${PATH}
     done
