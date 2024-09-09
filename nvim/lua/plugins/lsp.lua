@@ -57,6 +57,29 @@ return {
                     }
                 }
             },
+            ['rust_analyzer@nightly'] = {
+                settings = {
+                    ['rust-analyzer'] = {
+                        diagnostics = {
+                            disabled = { 'unresolved-proc-macro' },
+                        },
+                        cargo = {
+                            loadOutDirsFromCheck = true,
+                        },
+                        procMacro = {
+                            enable = true,
+                        },
+                        inlayHints = {
+                            closureReturnTypeHints = {
+                                enable = true
+                            },
+                        },
+                        cache = {
+                            warmup = false,
+                        }
+                    },
+                },
+            }
         }
     },
 }
