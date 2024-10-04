@@ -1,7 +1,6 @@
 [user]
 	email = jun@junz.org
 	name = Jun Zhang
-	signingkey = 36C76C0C
 [core]
 	excludesfile = ~/config/git/gitignore_global
 	editor = nvim
@@ -31,12 +30,9 @@
 	prompt = false
 [commit]
 	template = ~/config/git/gitmessage
-	gpgsign = true
 [format]
 	signoff = true
-[gpg]
-	program = gpg
-[http]
-	proxy = http://127.0.0.1:7890
+#[http]
+#	proxy = http://127.0.0.1:7890
 [rebase]
 	autosquash = true
