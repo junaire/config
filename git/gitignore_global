@@ -23,3 +23,5 @@ compile_commands.json
 # Nodejs
 node_modules/
 
+# MacOS
+.DS_Store
