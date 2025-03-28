@@ -26,7 +26,7 @@ return {
         },
         servers = {
             pyright = {},
-            tsserver = {
+            ts_ls = {
                 settings = {
                     typescript = {
                         inlayHints = {

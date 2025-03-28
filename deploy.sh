@@ -33,5 +33,8 @@ fi
 # neovim
 ln -s ${CONF_DIR}/nvim ${HOME}/.config/nvim
 
+ln -s ${CONF_DIR}/wezterm ${HOME}/.config/wezterm
+
 # pip
 ln -s ${CONF_DIR}/pip ${HOME}/.config/pip
+
