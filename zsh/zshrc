@@ -1,32 +1,31 @@
 export EDITOR='nvim'
-export LANG=en_US.UTF-8
 
 ANTIGEN_HOME=${HOME}/.antigen
 USER_OPT_DIR=${HOME}/opt
 
 export GPG_TTY=$TTY
 
-HOST_ADDR=127.0.0.1
-PORT=7890
+# HOST_ADDR=127.0.0.1
+# PORT=7890
 
 # proxy
-export socks_proxy="socks5://${HOST_ADDR}:${PORT}"
+# export socks_proxy="socks5://${HOST_ADDR}:${PORT}"
 
 # Set additional proxies, some stuff need it but others seem to be
 # broken if these are set. So make it optional.
-function set-proxy() {
-    export http_proxy="http://${HOST_ADDR}:${PORT}"
-    export https_proxy="http://${HOST_ADDR}:${PORT}"
-}
+# function set-proxy() {
+#     export http_proxy="http://${HOST_ADDR}:${PORT}"
+#     export https_proxy="http://${HOST_ADDR}:${PORT}"
+# }
 
 export GOPROXY=https://goproxy.cn
 export GOPATH=${HOME}/.go
-export PATH=${PATH}:${HOME}/.local/bin:/usr/local/cuda/bin
+# export PATH=${PATH}:${HOME}/.local/bin:/usr/local/cuda/bin
 
 # alias
 alias vi="nvim"
 # FIXME: This only work for Ubuntu.
-alias open="xdg-open"
+# alias open="xdg-open"
 
 alias logout="gnome-session-quit --logout --force"
 

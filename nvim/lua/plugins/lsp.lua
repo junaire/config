@@ -26,6 +26,7 @@ return {
         },
         servers = {
             pyright = {},
+            solidity = {},
             ts_ls = {
                 settings = {
                     typescript = {

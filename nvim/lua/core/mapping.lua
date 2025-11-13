@@ -25,5 +25,6 @@ map('n', 'g*', 'g*zz', opts)
 -- close highlighting search
 map('n', '<leader>h', ':noh<cr>', opts)
 
--- diagnostics
-map("n", "<leader>xx", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
+map('n', 'q:', '<nop>', opts)
+map('n', 'q/', '<nop>', opts)
+map('n', 'q?', '<nop>', opts)
