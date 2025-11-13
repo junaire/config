@@ -67,13 +67,21 @@ return {
                                 enabled = false,
                             },
                             rope_autoimport = {
-                                enabled = true,
+                                enabled = false,
                             },
                         }
                     }
                 }
             },
-            solidity_ls = {},
+            solidity_ls = {
+                settings = {
+                    solidity = {
+                        compileUsingRemoteVersion = 'latest',
+                        defaultCompiler = 'remote',
+                        enabledAsYouTypeCompilationErrorCheck = true,
+                    }
+                }
+            },
             ts_ls = {
                 settings = {
                     typescript = {
