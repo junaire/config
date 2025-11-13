@@ -7,15 +7,26 @@ return {
         'folke/neodev.nvim'
     },
     init = function()
-        local rounded = { border = 'rounded' }
-        vim.diagnostic.config({ float = rounded })
-        vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-            vim.lsp.diagnostic.on_publish_diagnostics, {
-                virtual_text = true,
-                signs = true,
-                update_in_insert = true,
-            }
-        )
+        vim.diagnostic.config({
+            float = { border = 'rounded' },
+            virtual_text = true,
+            signs = true,
+            update_in_insert = true,
+            severity_sort = true,
+        })
+
+        local diag_float_group = vim.api.nvim_create_augroup('lsp_diagnostics_float', { clear = true })
+        vim.api.nvim_create_autocmd('CursorHold', {
+            group = diag_float_group,
+            callback = function()
+                local cursor = vim.api.nvim_win_get_cursor(0)
+                local diags = vim.diagnostic.get(0, { lnum = cursor[1] - 1 })
+                if #diags == 0 then
+                    return
+                end
+                vim.diagnostic.open_float(nil, { focusable = false, scope = 'line' })
+            end,
+        })
     end,
     opts = {
         mappings = {
@@ -25,8 +36,44 @@ return {
             ['<space>f'] = vim.lsp.buf.format,
         },
         servers = {
-            pyright = {},
-            solidity = {},
+            pylsp = {
+                settings = {
+                    pylsp = {
+                        configurationSources = { 'flake8' },
+                        plugins = {
+                            autopep8 = {
+                                enabled = false,
+                            },
+                            flake8 = {
+                                enabled = true,
+                                ignore = { 'F403', 'F405', 'E501', 'W503' },
+                            },
+                            mccabe = {
+                                enabled = false,
+                            },
+                            pycodestyle = {
+                                enabled = false,
+                            },
+                            pyflakes = {
+                                enabled = false,
+                            },
+                            pylint = {
+                                enabled = false,
+                            },
+                            black = {
+                                enabled = true,
+                            },
+                            yapf = {
+                                enabled = false,
+                            },
+                            rope_autoimport = {
+                                enabled = true,
+                            },
+                        }
+                    }
+                }
+            },
+            solidity_ls = {},
             ts_ls = {
                 settings = {
                     typescript = {
