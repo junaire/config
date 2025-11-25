@@ -12,8 +12,10 @@ return {
                 horizontal = {
                     width = 0.75,
                     height = 0.75,
+                    preview_width = 0.45,
                 },
             },
+            path_display = { 'filename_first' },
             mappings = {
                 i = {
                     ['<esc>'] = 'close',
