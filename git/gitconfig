@@ -3,7 +3,7 @@
 	name = Jun Zhang
 [core]
 	excludesfile = ~/config/git/gitignore_global
-	editor = nvim
+	editor = vim
 [pull]
 	rebase = true
 [alias]
@@ -32,7 +32,5 @@
 	template = ~/config/git/gitmessage
 [format]
 	signoff = true
-#[http]
-#	proxy = http://127.0.0.1:7890
 [rebase]
 	autosquash = true

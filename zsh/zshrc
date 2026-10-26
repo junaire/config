@@ -1,4 +1,5 @@
-export EDITOR='nvim'
+export EDITOR='vim'
+export VISUAL='vim'
 
 USER_OPT_DIR=${HOME}/opt
 
@@ -22,7 +23,7 @@ export GOPATH=${HOME}/.go
 export PATH=${PATH}:${HOME}/.local/bin:/usr/local/cuda/bin
 
 # alias
-alias vi="nvim"
+alias vi="vim"
 # FIXME: This only work for Ubuntu.
 # alias open="xdg-open"
 

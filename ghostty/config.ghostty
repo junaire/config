@@ -1,0 +1,23 @@
+# 字体
+font-family = ComicShannsMono Nerd Font
+font-size = 14
+
+# 窗口边距
+window-padding-x = 5
+window-padding-y = 0
+
+# 跟随系统切换浅色 / 深色主题
+theme = light:Catppuccin Latte,dark:Catppuccin Mocha
+
+# 左 Option 作为 Alt
+macos-option-as-alt = left
+
+# 从 WezTerm 迁移的窗口和光标设置
+macos-titlebar-style = tabs
+cursor-style = block
+cursor-style-blink = true
+macos-non-native-fullscreen = false
+link-url = true
+
+# 保留 shell 集成，但禁止它将提示符光标改为竖线
+shell-integration-features = no-cursor

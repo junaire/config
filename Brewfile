@@ -36,8 +36,6 @@ brew "graphviz"
 brew "jq"
 # Next-gen compiler infrastructure
 brew "llvm@18"
-# Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
 # Small build system for use with gyp or CMake
 brew "ninja"
 # Port scanning utility for large networks
