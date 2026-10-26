@@ -3,6 +3,8 @@ set nocompatible
 set encoding=utf-8
 filetype plugin indent on
 syntax enable
+" % also jumps between if/endif, html tags, etc.
+silent! packadd matchit
 
 " Appearance: keep Vim's default colors and the terminal's palette/font.
 set number nocursorline
@@ -14,6 +16,10 @@ set nowrap
 
 " Editing and search.
 set backspace=indent,eol,start
+" Yank and paste with the system clipboard.
+if has('clipboard')
+    set clipboard=unnamed
+endif
 set autoindent expandtab tabstop=4 shiftwidth=4 softtabstop=4
 set hidden mouse=a
 set splitright splitbelow

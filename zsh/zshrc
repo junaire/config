@@ -1,8 +1,6 @@
 export EDITOR='vim'
 export VISUAL='vim'
 
-USER_OPT_DIR=${HOME}/opt
-
 export GPG_TTY=$TTY
 
 # HOST_ADDR=127.0.0.1
@@ -20,29 +18,24 @@ export GPG_TTY=$TTY
 
 export GOPROXY=https://goproxy.cn
 export GOPATH=${HOME}/.go
-export PATH=${PATH}:${HOME}/.local/bin:/usr/local/cuda/bin
+export PATH=${HOME}/.local/bin:${PATH}
 
 # alias
 alias vi="vim"
-# FIXME: This only work for Ubuntu.
-# alias open="xdg-open"
 
-alias logout="gnome-session-quit --logout --force"
-
-if [ -d ${USER_OPT_DIR} ]; then
-    for dir in $(ls ${USER_OPT_DIR}); do
-        PATH=${USER_OPT_DIR}/${dir}/bin:${PATH}
-    done
-fi
+for dir in ${USER_OPT_DIR}/*/bin(N); do
+    PATH=${dir}:${PATH}
+done
 
 function t {
     if [[ -n "${TMUX}" ]]
     then
         return 0
     fi
-    tmux ls -F '#{session_name}' |
+    local session
+    tmux ls -F '#{session_name}' 2>/dev/null |
     fzf --bind=enter:replace-query+print-query |
-    read session && tmux attach -t ${session:-default} || tmux new -s ${session:-default}
+    read -r session && tmux attach -t "${session:-default}" 2>/dev/null || tmux new -s "${session:-default}"
 }
 
 export ZSH="$HOME/.oh-my-zsh"

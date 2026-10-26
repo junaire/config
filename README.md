@@ -11,7 +11,7 @@ Pick up your favorite [nerd font](https://github.com/ryanoasis/nerd-fonts/releas
 # Use zsh if needed.
 chsh -s $(which zsh)
 # Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"\n\n
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # Install plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -25,6 +25,14 @@ brew bundle dump --all --describe --file=Brewfile
 # Install all packages
 brew bundle --file=Brewfile
 ```
+
+## Deploy
+
+```bash
+./deploy.sh
+```
+
+Machine-specific zsh overrides (not tracked here) go in `~/.zshrc.local`.
 
 
 ## Credits

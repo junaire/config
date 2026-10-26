@@ -70,8 +70,8 @@ cask "spotify"
 cask "tencent-meeting"
 # Open-source code editor
 cask "visual-studio-code"
-# GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
+# Cross-platform, GPU-accelerated terminal emulator
+cask "ghostty"
 
 go "golang.org/x/tools/gopls"
 go "honnef.co/go/tools/cmd/staticcheck"

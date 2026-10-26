@@ -1,44 +1,34 @@
 #! /bin/bash
-
-# Remove everything
-rm -rf ${HOME}/.gitconfig
-rm -rf ${HOME}/.tmux.conf
-rm -rf ${HOME}/.gdbinit
-rm -rf ${HOME}/.ssh/config
-rm -rf ${HOME}/.config/pip
+set -euo pipefail
 
 # Where we put our config.
-CONF_DIR="$( cd "$( dirname "$0" )" && pwd )"
+CONF_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+mkdir -p "${HOME}/.ssh" "${HOME}/.config"
 
 # tmux
-ln -s ${CONF_DIR}/tmux/tmux.conf ${HOME}/.tmux.conf
+ln -sfn "${CONF_DIR}/tmux/tmux.conf" "${HOME}/.tmux.conf"
 
 # gdb
-ln -s ${CONF_DIR}/gdb/gdbinit ${HOME}/.gdbinit
+ln -sfn "${CONF_DIR}/gdb/gdbinit" "${HOME}/.gdbinit"
 
-# zsh
-echo "source ${CONF_DIR}/zsh/zshrc" > ${HOME}/.zshrc
+# git
+ln -sfn "${CONF_DIR}/git/gitconfig" "${HOME}/.gitconfig"
+mkdir -p "${HOME}/.config/git"
+ln -sfn "${CONF_DIR}/git/gitignore_global" "${HOME}/.config/git/ignore"
+
+# zsh (append the source line only if not already wired up)
+grep -q "config/zsh/zshrc" "${HOME}/.zshrc" 2>/dev/null || \
+    echo "source ${CONF_DIR}/zsh/zshrc" >> "${HOME}/.zshrc"
 
 # ssh config
-if [ ! -d "${HOME}/.ssh" ]; then
-    mkdir ${HOME}/.ssh
-fi
-ln -s ${CONF_DIR}/ssh/config ${HOME}/.ssh/config
+ln -sfn "${CONF_DIR}/ssh/config" "${HOME}/.ssh/config"
 
-if [ ! -d "${HOME}/.config" ]; then
-    mkdir ${HOME}/.config
-fi
+# vim
+ln -sfn "${CONF_DIR}/vim/vimrc" "${HOME}/.vimrc"
 
-# vim (keep an existing vimrc as a backup)
-if ! [ "${HOME}/.vimrc" -ef "${CONF_DIR}/vim/vimrc" ]; then
-    if [ -e "${HOME}/.vimrc" ] || [ -L "${HOME}/.vimrc" ]; then
-        mv "${HOME}/.vimrc" "${HOME}/.vimrc.bak-$(date +%Y%m%d-%H%M%S)"
-    fi
-    ln -s "${CONF_DIR}/vim/vimrc" "${HOME}/.vimrc"
-fi
-
-ln -s ${CONF_DIR}/wezterm ${HOME}/.config/wezterm
+# ghostty
+ln -sfn "${CONF_DIR}/ghostty" "${HOME}/.config/ghostty"
 
 # pip
-ln -s ${CONF_DIR}/pip ${HOME}/.config/pip
-
+ln -sfn "${CONF_DIR}/pip" "${HOME}/.config/pip"

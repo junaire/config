@@ -2,10 +2,14 @@
 	email = jun@junz.org
 	name = Jun Zhang
 [core]
-	excludesfile = ~/config/git/gitignore_global
+	excludesfile = ~/.config/git/ignore
 	editor = vim
 [pull]
 	rebase = true
+[fetch]
+	prune = true
+[init]
+	defaultBranch = main
 [alias]
   fixup = "!sh -c '(git diff-files --quiet || (echo Unstaged changes, please commit or stash with --keep-index; exit 1)) && COMMIT=$(git rev-parse $1) && git commit --fixup=$COMMIT && git rebase -i --autosquash $COMMIT~1' -"
 [color]
@@ -28,9 +32,9 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
-[commit]
-	template = ~/config/git/gitmessage
 [format]
 	signoff = true
 [rebase]
 	autosquash = true
+[merge]
+	conflictstyle = zdiff3
